@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vandhana Purushothaman</title>
+<meta name="description" content="Vandhana Purushothaman — data-driven storyteller and Michigan Ross graduate working at the intersection of strategy, analytics, and writing.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23abe9fe'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='bold' fill='%23ff0000' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#ff0000;
+    --cyan:#2bbef4;
+    --ink:#111111;
+    --blue:#abe9fe;
+    --sans:'Inter', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    --s:1;
+    --scrib-w:6em;
+    --scrib-x:-6px;
+    --scrib-y:0px;
+    --scrib-sy:1;
+    --name-mt:0px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{height:100%; scroll-behavior:smooth}
+  body{min-height:100%;background:#fff;font-family:var(--sans);color:var(--ink);
+       -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  ::selection{background:var(--cyan); color:#fff;}
+
+  /* ============================================================
+     LANDING PAGE — responsive, fills the browser window
+     ============================================================ */
+  .page{
+    max-width:1240px; margin:0 auto; min-height:100vh;
+    padding:clamp(74px,9vw,118px) clamp(22px,4.8vw,76px) clamp(22px,3vw,44px);
+    display:flex; flex-direction:column;
+  }
+
+  /* ---------- header ---------- */
+  .hero{position:relative; margin-bottom:clamp(46px,8vh,96px);}
+  .name{
+    color:var(--red); font-weight:800; letter-spacing:.005em;
+    font-size:clamp(30px,5.1vw,60px); line-height:1.0;
+    margin-top:var(--name-mt,0px);
+  }
+  .scribble{
+    position:absolute; pointer-events:none; z-index:3;
+    font-size:clamp(30px,5.1vw,60px);      /* track the printed name's size */
+    left:calc(-0.12em + var(--scrib-x));
+    top:calc(-1.55em + var(--scrib-y));
+    width:var(--scrib-w); height:auto;     /* width in em -> scales with the name */
+    transform:scaleY(var(--scrib-sy)); transform-origin:top left;
+  }
+
+  /* ---------- two columns ---------- */
+  .cols{
+    display:grid; grid-template-columns:minmax(0,0.92fr) minmax(0,1.22fr);
+    gap:clamp(34px,5.5vw,104px); align-items:start; flex:1 0 auto;
+  }
+
+  /* left: photo + bio */
+  .col-left{
+    display:grid; grid-template-columns:clamp(150px,15vw,205px) minmax(0,1fr);
+    gap:clamp(18px,2.3vw,34px); align-items:start;
+  }
+  .photo{
+    width:100%; aspect-ratio:175/221; object-fit:cover; object-position:50% 14%;
+    display:block;
+  }
+  .bio-wrap{display:flex; flex-direction:column; gap:1.05em;}
+  .bio{font-size:clamp(14px,1.18vw,18px); line-height:1.3; max-width:30ch;}
+  .bio b{font-weight:700;}
+  .bio i{font-style:italic;}
+  .currently{font-size:clamp(13px,1.08vw,16px); line-height:1.4; max-width:32ch; color:var(--ink);}
+  .currently .cur-star{color:var(--red); font-weight:700; margin-right:5px;}
+  .currently .cur-label{font-weight:700;}
+  .currently i{font-style:italic;}
+
+  /* right: my work */
+  .col-right{padding-top:clamp(2px,0.6vw,8px);}
+  .mywork{
+    width:clamp(108px,11.5vw,165px); height:auto; display:block;
+    margin-bottom:clamp(14px,1.7vw,26px);
+  }
+  .work{list-style:none; display:flex; flex-direction:column; gap:clamp(13px,1.4vw,20px);}
+  .entry{display:grid; grid-template-columns:auto minmax(0,1fr); gap:clamp(8px,0.9vw,14px);
+         align-items:start;}
+  .star{color:var(--red); font-size:clamp(19px,2vw,28px); line-height:1.05; user-select:none; margin-top:-1px;}
+  .ttl{
+    display:inline; background:var(--cyan); color:#fff; font-weight:700;
+    font-size:clamp(13px,1.12vw,16px); line-height:1.34;
+    padding:1px 4px; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  }
+  .dsc{
+    margin-top:4px; font-size:clamp(13px,1.12vw,16px); line-height:1.34;
+    color:var(--ink); max-width:54ch;
+  }
+
+  /* ---------- expandable project detail ---------- */
+  .ttl-btn{
+    display:inline-block; border:0; background:none; padding:0; margin:0;
+    font:inherit; color:inherit; text-align:left; cursor:pointer;
+    transform-origin:center center; -webkit-tap-highlight-color:transparent;
+  }
+  .entry.expandable .entry-body{cursor:pointer;}
+  .entry.expandable .detail{cursor:auto;}
+  .expandable .ttl-btn:hover{animation:wiggle .75s steps(1) infinite;}
+  .expandable .ttl-btn:focus-visible{outline:2px solid var(--cyan); outline-offset:3px;}
+  @keyframes wiggle{
+    0%{transform:rotate(-3deg)}
+    25%{transform:rotate(3deg)}
+    50%{transform:rotate(-2deg)}
+    75%{transform:rotate(2.5deg)}
+    100%{transform:rotate(-3deg)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .expandable .ttl-btn:hover{animation:none;}
+  }
+  .detail{
+    max-height:0; overflow:hidden; opacity:0; margin-top:0;
+    transition:max-height .45s cubic-bezier(.4,0,.2,1), opacity .35s ease, margin-top .45s ease;
+  }
+  .entry.open .detail{max-height:1000px; opacity:1; margin-top:9px;}
+  .detail-inner p{
+    font-size:clamp(13px,1.08vw,15.5px); line-height:1.52; max-width:62ch; color:var(--ink);
+  }
+  .detail-inner p + p{margin-top:.78em;}
+
+  /* when one project is open, gently recede the others (opacity only) */
+  .entry{transition:opacity .35s ease;}
+  .work.has-open .entry:not(.open){opacity:.45;}
+  .work.has-open .entry:not(.open):hover{opacity:.75;}
+
+  /* faint “click to expand” cue on hover — takes no space until shown */
+  .cue{
+    display:block; height:0; margin-top:0; overflow:hidden;
+    font-size:clamp(10.5px,.9vw,12px); letter-spacing:.04em; color:var(--ink);
+    opacity:0; pointer-events:none;
+    transition:opacity .25s ease, height .2s ease, margin-top .2s ease;
+  }
+  .entry.expandable:hover .cue{opacity:.42; height:1.4em; margin-top:5px;}
+  .entry.open .cue{display:none;}
+  @media (prefers-reduced-motion: reduce){ .cue{transition:none;} }
+
+  /* ---------- entrance reveal (added by JS after intro) ---------- */
+  @keyframes fadeUp{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+  body.intro-done .hero{animation:fadeUp .55s ease both;}
+  body.intro-done .col-left{animation:fadeUp .55s .08s ease both;}
+  body.intro-done .mywork{animation:fadeUp .5s .12s ease both;}
+  body.intro-done .work .entry{animation:fadeUp .5s ease both;}
+  body.intro-done .work .entry:nth-child(1){animation-delay:.16s}
+  body.intro-done .work .entry:nth-child(2){animation-delay:.24s}
+  body.intro-done .work .entry:nth-child(3){animation-delay:.32s}
+  body.intro-done .work .entry:nth-child(4){animation-delay:.40s}
+  body.intro-done .work .entry:nth-child(5){animation-delay:.48s}
+  body.intro-done .footer{animation:fadeUp .5s .5s ease both;}
+  @media (prefers-reduced-motion: reduce){ body.intro-done *{animation:none !important;} }
+
+  /* ---------- footer (pinned toward the bottom) ---------- */
+  .footer{margin-top:auto; padding-top:clamp(26px,5vh,60px); color:var(--red);}
+  .fmore{font-size:clamp(13px,1.1vw,16px); font-weight:400;}
+  .flinks{
+    margin-top:6px; display:flex; flex-wrap:wrap; align-items:center;
+    gap:clamp(10px,1.1vw,18px); font-size:clamp(12.5px,1.02vw,15px);
+  }
+  .flinks .item{white-space:nowrap;}
+  .flinks .sp{color:var(--red); margin-right:3px;}
+  .flinks a{color:var(--red); text-decoration:none;}
+  .flinks a:hover{text-decoration:underline;}
+
+  @media (max-width:860px){
+    .cols{grid-template-columns:1fr; gap:38px;}
+    .col-left{grid-template-columns:clamp(150px,40vw,205px) minmax(0,1fr);}
+  }
+  @media (max-width:540px){
+    .col-left{grid-template-columns:1fr; gap:20px;}
+    .photo{max-width:230px;}
+  }
+
+  /* ============================================================
+     INTRO ANIMATION  (crisp vector frames)
+     ============================================================ */
+  .intro{
+    position:fixed; inset:0; z-index:100; background:var(--blue);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform var(--reveal,.72s) cubic-bezier(.66,0,.18,1);
+    will-change:transform;
+  }
+  .intro.up{transform:translateY(-101%);}
+  .introstage{
+    position:relative; width:960px; height:540px;
+    transform:scale(var(--s)); transform-origin:center center;
+  }
+  .iframe{position:absolute; inset:0; opacity:0;}
+  .iframe.on{opacity:1;}
+  img.iframe{width:960px; height:540px; object-fit:contain;}
+  .blockname{
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    color:var(--red); font-weight:800; font-size:74px; line-height:1.08; letter-spacing:.004em;
+  }
+
+  .replay{
+    position:fixed; right:16px; bottom:14px; z-index:60;
+    font-family:var(--sans); font-size:12px; letter-spacing:.04em;
+    color:#c00; background:rgba(255,255,255,.72);
+    border:1px solid rgba(255,0,0,.35); border-radius:999px;
+    padding:6px 12px; cursor:pointer; opacity:0; transition:opacity .4s;
+  }
+  .replay.show{opacity:1;}
+  .replay:hover{background:#fff;}
+
+  @media (prefers-reduced-motion: reduce){ .intro{display:none;} }
+</style>
+</head>
+<body style="background-color: rgb(255, 255, 255)">
+
+  <!-- ===== INTRO ANIMATION (placed first so it covers before the page paints) ===== -->
+  <div class="intro" id="intro" data-screen-label="Intro">
+    <div class="introstage">
+      <img class="iframe" id="f1" src="assets/full1.svg" alt="">
+      <img class="iframe" id="f2" src="assets/full2.svg" alt="">
+      <img class="iframe" id="f3" src="assets/full3.svg" alt="">
+      <div class="iframe blockname" id="fb">VANDHANA<br>PURUSHOTHAMAN</div>
+    </div>
+  </div>
+
+  <!-- ===================== LANDING PAGE ===================== -->
+  <main class="page" data-screen-label="Landing">
+    <header class="hero">
+      <h1 class="name">VANDHANA PURUSHOTHAMAN</h1>
+      <img class="scribble" src="assets/full1.svg" alt="">
+    </header>
+
+    <section class="cols">
+      <div class="col-left">
+        <img class="photo" src="assets/headshot.jpg" alt="Vandhana Purushothaman">
+        <div class="bio-wrap">
+          <p class="bio">I&rsquo;m a <b>data-driven storyteller</b> &amp; Michigan Ross graduate with concentrations in Strategy and Mathematics.</p>
+          <p class="bio">Outside of strategy, I love literary non-fiction, mental math games, and <i>Succession</i>.</p>
+          <p class="currently"><span class="cur-star">&#10040;</span><span class="cur-label">Currently:</span> reading <i>Chip War</i> by Chris Miller and <i>Lonely City</i> by Olivia Laing.</p>
+        </div>
+      </div>
+
+      <div class="col-right">
+        <img class="mywork" src="assets/mywork.svg" alt="my work">
+        <ul class="work">
+          <li class="entry expandable" data-key="dynamic">
+            <span class="star">&#10040;</span>
+            <div class="entry-body">
+              <button class="ttl-btn" type="button" aria-expanded="false" aria-controls="d-dynamic">
+                <span class="ttl">Dynamic Pricing for Minor League Baseball</span>
+              </button>
+              <p class="dsc">Led a team of 6 to identify a $2M revenue opportunity through a Python-based dynamic pricing model for a $20M baseball franchise</p>
+              <span class="cue">Click to expand &#8595;</span>
+              <div class="detail" id="d-dynamic">
+                <div class="detail-inner">
+                  <p>We started with historical sales data -- cleaning and structuring it in SQL, then clustering seating sections by demand trends and proximity to amenities. From there we built a logistic regression in Python to calculate price elasticities across different game scenarios: prime infield seats on summer weekends could support a premium, outfield sections on weekday games needed discounts to drive attendance and pull concession revenue with it.</p>
+                  <p>My job as PM was to make sure the client could actually act on what we built; translating regression outputs into pricing logic a non-technical front office could use, and running weekly calls to incorporate their feedback in real time.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="entry expandable" data-key="foodbank">
+            <span class="star">&#10040;</span>
+            <div class="entry-body">
+              <button class="ttl-btn" type="button" aria-expanded="false" aria-controls="d-foodbank">
+                <span class="ttl">Food Bank Resource Allocation Engine</span>
+              </button>
+              <p class="dsc">Used SQL + regression analysis on 6M+ data points to build a ZIP-code ranking model to redirect food resources to high-need communities</p>
+              <span class="cue">Click to expand &#8595;</span>
+              <div class="detail" id="d-foodbank">
+                <div class="detail-inner">
+                  <p>Working from 6M+ data points across demographic, economic, and internal distribution records, I used SQL to clean and validate inconsistently reported metrics across sites, then ran regression analysis to identify which factors actually predicted insecurity at the ZIP code level.</p>
+                  <p>The core problem was that existing food insecurity models were built on income data, which misses entire categories of need. Families just above the food stamp eligibility threshold don’t show up as vulnerable. Neither do communities where a grocery store technically exists but nobody can get to it without a car.</p>
+                  <p>I engineered two custom metrics to capture what standard models were missing: a Grocery Gap score quantifying physical access to food, and a Dependent Ratio for households under economic strain that income thresholds couldn&rsquo;t see. Those fed into a composite ZIP-code ranking weighted by the regression outputs.</p>
+                  <p>The final deliverable was an interactive Tableau dashboard the client could use to explore need by zip code, which ultimately guided the redistribution of 3M+ pounds of food.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="entry expandable" data-key="rapidsos">
+            <span class="star">&#10040;</span>
+            <div class="entry-body">
+              <button class="ttl-btn" type="button" aria-expanded="false" aria-controls="d-rapidsos">
+                <span class="ttl">RapidSOS</span>
+              </button>
+              <p class="dsc">Developed executive-facing market sizing and competitive analyses for a Series D safety tech company</p>
+              <span class="cue">Click to expand &#8595;</span>
+              <div class="detail" id="d-rapidsos">
+                <div class="detail-inner">
+                  <p>RapidSOS is a safety tech company that connects emergency call data across 911 systems, corporate security teams, and first responders, building a unified picture of what’s happening during a crisis so response is faster and more coordinated.</p>
+                  <p>I was brought in to help launch a pilot with a major enterprise client, but there was a threshold problem: what does success actually look like? We needed a framework rigorous enough to evaluate outcomes across three months, where the stakes were genuine: response times, lives potentially affected, dollars saved.</p>
+                  <p>I spent the summer in discovery interviews with the people the product was built for: security leads managing corporate emergencies, operations teams coordinating across sites, and first responders in the field. I wasn’t just collecting feedback. I was mapping the workflows that emergency routing had to actually fit into. That qualitative data became the foundation for building out KPI and ROI metrics: tiered product definitions, life-outcome indicators tied to response speed, and financial benchmarks that clarified whether the pilot had worked.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="entry expandable" data-key="lyrical">
+            <span class="star">&#10040;</span>
+            <div class="entry-body">
+              <button class="ttl-btn" type="button" aria-expanded="false" aria-controls="d-lyrical">
+                <span class="ttl">Lyrical Temporality Index</span>
+              </button>
+              <p class="dsc">Classified 6,500+ songs by lyrical mode using a philosophical framework; built D3.js visualization</p>
+              <span class="cue">Click to expand &#8595;</span>
+              <div class="detail" id="d-lyrical">
+                <div class="detail-inner">
+                  <p>I wanted to know whether the way songs relate to time &mdash; not their tempo, but their psychological orientation toward it &mdash; had shifted across six decades of popular music. To find out, I needed a classification system.</p>
+                  <p>I built one anchored in philosopher Kieran Setiya&rsquo;s framework of telic and atelic activities: songs that dwell in a moment, songs that move toward an endpoint, songs that simply narrate. I classified 6,500+ songs from the Rolling Stone 500 using that lens, then built a D3.js visualization to map how the distribution has shifted over time.</p>
+                  <p>The project lives on my <a href="https://rightdowntheline.substack.com/" target="_blank" rel="noopener">Substack</a> as a longform data essay.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="entry expandable" data-key="rebellion">
+            <span class="star">&#10040;</span>
+            <div class="entry-body">
+              <button class="ttl-btn" type="button" aria-expanded="false" aria-controls="d-rebellion">
+                <span class="ttl">Rebellion Records</span>
+              </button>
+              <p class="dsc">Built AI-driven marketing automations and creator outreach systems for an indie label</p>
+              <span class="cue">Click to expand &#8595;</span>
+              <div class="detail" id="d-rebellion">
+                <div class="detail-inner">
+                  <p>Rebellion&rsquo;s creator outreach was entirely manual &mdash; one email at a time, no tracking, no scale. I built the infrastructure to change that.</p>
+                  <p>The system I shipped scraped TikTok for creators matching specific criteria, sent outreach automatically, and routed responses to an LLM that negotiated on the label&rsquo;s behalf within pricing constraints I&rsquo;d set. Closed deals were compiled into a daily digest sent directly to the CEO for one-batch approval. We went from roughly 200 manual outreach attempts per week to 2,000+ automated touchpoints.</p>
+                  <p>I also built an auto-updating release tracker in Google Apps Script &mdash; pulling from internal PM software and giving artists direct visibility into their release progress &mdash; which cut update calls in half.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="fmore">Want more?</div>
+      <div class="flinks">
+        <span class="item"><span class="sp">&#10040;</span><a href="https://www.linkedin.com/in/vndhana/" target="_blank" rel="noopener">LinkedIn</a></span>
+        <span class="item"><span class="sp">&#10040;</span><a href="https://rightdowntheline.substack.com/" target="_blank" rel="noopener">Substack</a></span>
+        <span class="item"><span class="sp">&#10040;</span><a href="mailto:vandhana327@gmail.com">Email</a></span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="replay" id="replay">&#10040; replay intro</button>
+
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#abe9fe"/><text x="50" y="62" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#ff0000" text-anchor="middle">VP</text></svg>
+  </template>
+
+<script>
+  // ============================================================
+  //  Runs IMMEDIATELY (before the heavy React/Babel libs below),
+  //  so the intro animation starts straight away instead of after
+  //  a static pause while Babel downloads.
+  // ============================================================
+
+  // ---- scale the 960x540 intro stage to fit any viewport ----
+  function fit(){
+    const s = Math.min(window.innerWidth/960, window.innerHeight/540);
+    document.documentElement.style.setProperty('--s', s);
+  }
+  window.addEventListener('resize', fit);
+  fit();
+
+  // ---- tweak values: persisted in localStorage, applied early ----
+  const TWEAK_KEY = 'vp_tweaks_v1';
+  const DEFAULT_TWEAKS = {
+    frameSpeed:230, loops:"3", hold:1000, reveal:720,
+    scribble:"full1", showScribble:true, scribW:30, scribX:-6, scribY:0,
+    scribFlat:1, nameDrop:0, highlight:"#2bbef4"
+  };
+  const CFG = window.CFG = { frameDur:230, holdBlock:1000, reveal:720, loops:3 };
+
+  window.applyTweaks = function(t, persist){
+    if(!t) return;
+    CFG.frameDur  = +t.frameSpeed;
+    CFG.loops     = +t.loops;
+    CFG.holdBlock = +t.hold;
+    CFG.reveal    = +t.reveal;
+    const rs = document.documentElement.style;
+    rs.setProperty('--reveal', CFG.reveal+'ms');
+    rs.setProperty('--cyan', t.highlight);
+    const scr = document.querySelector('.scribble');
+    if(scr){
+      scr.style.display = t.showScribble ? 'block' : 'none';
+      // reuse the intro frame's already-resolved source (a data URI in the
+      // bundled file) so the header signature works offline too
+      const fmap = { full1:'f1', full2:'f2', full3:'f3' };
+      const fEl = document.getElementById(fmap[t.scribble] || 'f1');
+      if(fEl) scr.src = fEl.src;
+    }
+    rs.setProperty('--scrib-w', (+t.scribW/5)+'em');
+    rs.setProperty('--scrib-x', (+t.scribX)+'px');
+    rs.setProperty('--scrib-y', (+t.scribY)+'px');
+    rs.setProperty('--scrib-sy', (+t.scribFlat));
+    rs.setProperty('--name-mt', (+t.nameDrop)+'px');
+    if(persist){ try{ localStorage.setItem(TWEAK_KEY, JSON.stringify(t)); }catch(e){} }
+  };
+
+  // read any saved tweaks and apply them before first paint of the page
+  let savedTweaks = null;
+  try{ savedTweaks = JSON.parse(localStorage.getItem(TWEAK_KEY) || 'null'); }catch(e){}
+  window.__initialTweaks = Object.assign({}, DEFAULT_TWEAKS, savedTweaks || {});
+  window.applyTweaks(window.__initialTweaks, false);
+
+  // ---- intro animation ----
+  const intro  = document.getElementById('intro');
+  const replay = document.getElementById('replay');
+  const frames = { 1:document.getElementById('f1'), 2:document.getElementById('f2'),
+                   3:document.getElementById('f3'), b:document.getElementById('fb') };
+
+  let timers = [];
+  const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
+  function showFrame(k){
+    Object.values(frames).forEach(f=>f.classList.remove('on'));
+    frames[k].classList.add('on');
+  }
+  function startReveal(){ intro.classList.add('up'); document.body.classList.add('intro-done'); }
+  function finishReveal(){ intro.style.display='none'; replay.classList.add('show'); document.body.style.overflow=''; document.body.classList.add('intro-done'); }
+
+  function playIntro(){
+    clearTimers();
+    replay.classList.remove('show');
+    document.body.style.overflow='hidden';
+    intro.style.display='flex';
+    intro.classList.remove('up');
+    const seq=[];
+    for(let i=0;i<CFG.loops;i++) seq.push(1,2,3);
+    let t=0;
+    seq.forEach(k=>{ timers.push(setTimeout(()=>showFrame(k), t)); t += CFG.frameDur; });
+    timers.push(setTimeout(()=>showFrame('b'), t));  t += CFG.holdBlock;
+    timers.push(setTimeout(startReveal, t)); t += CFG.reveal;
+    timers.push(setTimeout(finishReveal, t));
+  }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ finishReveal(); }
+  else {
+    showFrame(1);
+    document.body.style.overflow='hidden';
+    // start on a plain timer (fires even if the tab is briefly backgrounded);
+    // short enough that there's no static pause before the animation.
+    setTimeout(playIntro, 60);
+  }
+
+  intro.addEventListener('click', ()=>{
+    clearTimers(); startReveal();
+    setTimeout(finishReveal, CFG.reveal);
+  });
+  replay.addEventListener('click', playIntro);
+  window.playIntro = playIntro;
+
+  // ---- expandable projects (accordion: one open at a time, dim the rest) ----
+  const workList = document.querySelector('.work');
+  function syncDim(){
+    workList.classList.toggle('has-open', !!document.querySelector('.entry.open'));
+  }
+  function toggleEntry(entry){
+    const btn = entry.querySelector('.ttl-btn');
+    const isOpen = entry.classList.contains('open');
+    document.querySelectorAll('.entry.open').forEach(e=>{
+      e.classList.remove('open');
+      const b=e.querySelector('.ttl-btn'); if(b) b.setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){ entry.classList.add('open'); if(btn) btn.setAttribute('aria-expanded','true'); }
+    syncDim();
+  }
+  document.querySelectorAll('.entry.expandable').forEach(entry=>{
+    const body = entry.querySelector('.entry-body');
+    body.addEventListener('click', (e)=>{
+      // don't collapse when interacting with the expanded text or a link inside it
+      if(e.target.closest('.detail')) return;
+      if(e.target.closest('a')) return;
+      toggleEntry(entry);
+    });
+  });
+</script>
+
+</body>
+</html>
