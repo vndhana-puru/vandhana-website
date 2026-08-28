@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<base href="/do-we-want-our-music-to-hurt/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 </head>
@@ -52,11 +51,11 @@
       </sc-for>
     </div>
 
-    <div data-ov="1" data-z="0" data-hold="480" data-chapter="Do we want our music to hurt?" data-screen-label="Title card" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 8vh 6vw 8vh 26vw; opacity: 1; overflow: hidden;">
+    <div data-ov="1" data-z="0" data-chapter="Do we want our music to hurt?" data-screen-label="Title card" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 8vh 6vw 8vh 26vw; opacity: 1; overflow: hidden;">
       <div data-ring="1" style="position: absolute; left: {{ ringLeft }}px; top: 50%; width: 0; height: 0; animation: ringspin {{ ringSecs }}s linear infinite; pointer-events: none;">
         <sc-for list="{{ ring }}" as="r" hint-placeholder-count="30">
           <div data-a="{{ r.a }}" style="position: absolute; left: 0; top: 0; transform: rotate({{ r.a }}deg) translateX({{ ringR }}px) rotate(90deg);">
-            <img data-src="{{ r.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ r.album }}" style="display: block; width: {{ ringTile }}px; height: {{ ringTile }}px; object-fit: cover; margin-left: {{ ringHalf }}px; margin-top: {{ ringHalf }}px; opacity: {{ ringOpacity }};">
+            <img data-src="{{ r.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ r.album }}" fetchpriority="high" decoding="async" style="display: block; width: {{ ringTile }}px; height: {{ ringTile }}px; object-fit: cover; margin-left: {{ ringHalf }}px; margin-top: {{ ringHalf }}px; opacity: {{ ringOpacity }};">
           </div>
         </sc-for>
       </div>
@@ -69,48 +68,43 @@
       </div>
     </div>
 
-    <div data-ov="1" data-playlist="1" data-z="2600" data-hold="2000" data-chapter="I — The state of affairs" data-screen-label="State of affairs" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 8vh 6vw; opacity: 0; pointer-events: none;">
+    <div data-ov="1" data-playlist="1" data-z="2600" data-chapter="I — The state of affairs" data-screen-label="State of affairs" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 8vh 6vw; opacity: 0; pointer-events: none;">
       <div style="width: 100%; max-width: 1120px; display: flex; align-items: stretch; justify-content: center; gap: 3.5vw; height: min(460px, 72vh);">
 
         <div style="position: relative; flex: 1 1 auto; min-width: 0;">
 
-          <div data-phase="a" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 16px; will-change: transform, opacity;">
-            <div data-title="1" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; transition: opacity 0.55s ease;">
-              <h2 style="margin: 0; font-family: Inter, sans-serif; font-size: clamp(22px, 2.3vw, 31px); font-weight: 500; line-height: 1.08; letter-spacing: -0.035em; color: #fff;">Modern media consumption is oriented around the escape of discomfort.</h2>
+          <div data-phase="a" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 16px; overflow: hidden; will-change: transform, opacity;">
+            <div data-plline="0" style="opacity: 0; transition: opacity 0.6s ease;">
+              <h2 style="margin: 0 0 4px; font-family: Inter, sans-serif; font-size: clamp(26px, 2.6vw, 37px); font-weight: 600; line-height: 1.13; letter-spacing: -0.03em; color: #fff; text-wrap: pretty;">Why do we replay the songs that wreck us?</h2>
             </div>
-
-            <div data-stage="0" style="display: flex; flex-direction: column; gap: 9px; opacity: 0;">
-              <p style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(17px, 1.5vw, 21px); font-weight: 400; line-height: 1.5; color: #f4f2ef;">Short form content dominates. Literacy rates have plummeted. News feeds cater to opinions instead of challenging them.</p>
-              <div style="position: relative; height: 1px; width: 100%; background: rgba(244,242,239,0.14);"><div data-bar="0" style="position: absolute; left: 0; top: 0; height: 1px; width: 0%; background: rgba(244,242,239,0.85);"></div></div>
+            <div data-plline="1" style="opacity: 0; transition: opacity 0.6s ease; padding-bottom: 16px; border-bottom: 1px solid rgba(244,242,239,0.13);">
+              <p style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(15px, 1.35vw, 19px); font-weight: 400; line-height: 1.5; letter-spacing: -0.008em; text-wrap: pretty; color: #fff;">Modern media is built around escaping discomfort. We scroll past bad news, trade books for reels, and fine-tune our feeds to never disagree with us. Music is the exception.</p>
             </div>
-
-            <div data-stage="1" style="display: flex; flex-direction: column; gap: 9px; opacity: 0;">
-              <p style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(17px, 1.5vw, 21px); font-weight: 400; line-height: 1.5; color: #f4f2ef;">So — where do we turn when the road runs out? When circumventing reality turns into a spiral, and the emotion at the crux of the issue is evidently not going anywhere?</p>
-              <div style="position: relative; height: 1px; width: 100%; background: rgba(244,242,239,0.14);"><div data-bar="1" style="position: absolute; left: 0; top: 0; height: 1px; width: 0%; background: rgba(244,242,239,0.85);"></div></div>
+            <div data-plline="2" style="opacity: 0; transition: opacity 0.6s ease; padding-bottom: 16px; border-bottom: 1px solid rgba(244,242,239,0.13);">
+              <p style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(15px, 1.35vw, 19px); font-weight: 400; line-height: 1.5; letter-spacing: -0.008em; text-wrap: pretty; color: #fff;">Research on sad music suggests we seek it out for emotional catharsis without real-life stakes — a place to sit inside grief, longing, and heartbreak instead of moving past them.</p>
             </div>
-
-            <div data-stage="2" style="display: flex; flex-direction: column; gap: 9px; opacity: 0;">
-              <p style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(17px, 1.5vw, 21px); font-weight: 400; line-height: 1.5; color: #f4f2ef;">There are few areas in life where people willingly seek out pain. But music is one of them.</p>
-              <div style="position: relative; height: 1px; width: 100%; background: rgba(244,242,239,0.14);"><div data-bar="2" style="position: absolute; left: 0; top: 0; height: 1px; width: 0%; background: rgba(244,242,239,0.85);"></div></div>
-            </div>
-
-            <div data-stage="3" style="position: absolute; inset: 0; display: flex; align-items: center; opacity: 0; pointer-events: none;">
-              <p style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(28px, 3.1vw, 42px); font-weight: 600; line-height: 1.16; letter-spacing: -0.02em; color: #fff; text-wrap: pretty;">Which begs the question — when we go to the ends of the earth to avoid pain, <span style="color: #ff2fd6;">do we want our music to hurt?</span></p>
+            <div data-plline="3" style="opacity: 0; transition: opacity 0.6s ease;">
+              <p style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(15px, 1.35vw, 19px); font-weight: 400; line-height: 1.5; letter-spacing: -0.008em; text-wrap: pretty; color: #fff;">So, if music is one of the rare places we go to feel things safely, the songs we call the greatest should show it.</p>
             </div>
           </div>
 
         </div>
 
-        <img data-dotsrc="1" src="shots/dotfield.png" alt="" style="opacity: 0; display: block; flex: 0 0 auto; align-self: stretch; width: min(400px, 62vh); height: 100%; object-fit: cover;">
+        <div style="position: relative; flex: 0 0 auto; align-self: stretch; width: min(400px, 62vh);">
+          <img data-dotsrc="1" src="shots/dotfield.png" alt="" style="opacity: 0; display: block; width: 100%; height: 100%; object-fit: cover;">
+          <div data-phase="b" style="position: absolute; left: -22%; right: -22%; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; padding: 2%; opacity: 0; pointer-events: none;">
+            <p style="margin: 0; text-align: center; font-family: Lora, Georgia, serif; font-size: clamp(24px, 2.5vw, 35px); font-weight: 600; line-height: 1.22; letter-spacing: -0.018em; color: #fff; text-wrap: pretty;">Which raises the question: when we go to the ends of the earth to avoid pain, <span style="color: #ff2fd6;">do we want our music to hurt?</span></p>
+          </div>
+        </div>
         <canvas data-dotwipe="1" style="position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 60; pointer-events: none; opacity: 0;"></canvas>
       </div>
 
     </div>
 
-    <div data-ov="1" data-corpus="1" data-z="3150" data-hold="9800" data-chapter="II — The corpus &amp; the classification" data-screen-label="Corpus and classification" style="position: absolute; inset: 0; z-index: 40; overflow: hidden; opacity: 0; pointer-events: none;">
+    <div data-ov="1" data-corpus="1" data-z="3150" data-chapter="II — The corpus &amp; the classification" data-screen-label="Corpus and classification" style="position: absolute; inset: 0; z-index: 40; overflow: hidden; opacity: 0; pointer-events: none;">
       <div data-cxintro="1" style="position: absolute; left: 6vw; right: 6vw; top: 50%; transform: translateY(-50%); display: flex; justify-content: center;">
         <div style="width: min(30em, 100%); display: flex; flex-direction: column; gap: 26px;">
-          <p data-cxpara="1" style="margin: 0; text-align: center; text-wrap: pretty; font-family: Lora, Georgia, serif; font-size: clamp(19px, 2vw, 26px); line-height: 1.45; letter-spacing: -0.012em; color: rgba(244,242,239,0.94);"><span data-cxfade="1">To find out, I scraped the lyrics for all ~7,000 songs on the <a href="https://www.rollingstone.com/music/music-lists/best-albums-of-all-time-1062063/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,47,214,0.75); padding-bottom: 1px;">500 Greatest Albums of All Time</a> and deployed a </span><span data-cxkeep="1" style="color: rgba(244,242,239,0.94);">language model</span><span data-cxfade="1"> to classify each by its relationship to pain.</span></p>
+          <p data-cxpara="1" style="margin: 0; text-align: center; text-wrap: pretty; font-family: Lora, Georgia, serif; font-size: clamp(19px, 2vw, 26px); line-height: 1.45; letter-spacing: -0.012em; color: rgba(244,242,239,0.94);"><span data-cxfade="1" style="opacity: 0;">To find out, I scraped the lyrics for all ~7,000 songs on the <a href="https://www.rollingstone.com/music/music-lists/best-albums-of-all-time-1062063/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,47,214,0.75); padding-bottom: 1px;">500 Greatest Albums of All Time</a> and deployed a </span><span data-cxkeep="1" style="opacity: 0; color: rgba(244,242,239,0.94);">language model</span><span data-cxfade="1" style="opacity: 0;"> to classify each by its relationship to pain.</span></p>
           <p data-cxs2="1" style="margin: 0; opacity: 0; text-align: center; text-wrap: pretty; font-family: Lora, Georgia, serif; font-size: clamp(19px, 2vw, 26px); line-height: 1.45; letter-spacing: -0.012em; color: rgba(244,242,239,0.94);">Inspired by philosopher Kieran Setiya's distinction between atelic experiences (valued in the doing) and telic ones (aimed at an endpoint), I sorted each song by whether it sits with pain, moves past it, or stands outside it.</p>
         </div>
       </div>
@@ -121,15 +115,15 @@
       <div data-cxcode="1" style="position: absolute; left: 4vw; right: 4vw; top: 5vh; bottom: 0; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; opacity: 0; pointer-events: none;">
         <div data-cxcodeinner="1" style="width: min(1240px, 100%); display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; align-items: flex-start; gap: 0;">
-            <div data-cxpre="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); white-space: pre-wrap;">SYSTEM = """You are a lyrics classifier. For each song output EXACTLY one entry, in order. Category definitions:</div>
-            <span data-cxcaret="1" style="display: inline-block; width: 8px; height: 15px; margin-left: 2px; background: #3bff6e; box-shadow: 0 0 8px rgba(59,255,110,0.7); animation: caretBlink 1s step-end infinite;"></span>
+            <div data-cxpre="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); white-space: pre-wrap;">SYSTEM = """You are a lyrics classifier. For each song output EXACTLY one entry, in order. Category definitions:</div>
+            <span data-cxcaret="1" style="display: inline-block; width: 9px; height: 18px; margin-left: 2px; background: #3bff6e; box-shadow: 0 0 8px rgba(59,255,110,0.7); animation: caretBlink 1s step-end infinite;"></span>
           </div>
 
           <div data-cxwall="1" style="overflow: hidden;">
             <div data-cxcats="1" style="display: flex; flex-direction: column; gap: 12px; transition: gap 0.5s ease;">
               <div data-cxcat="0" data-cxhue="#ffd23f" style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 0; min-width: 0; padding-top: 0; border-top: 0 solid #ffd23f; transition: padding-top 0.5s ease, border-top-width 0.5s ease;">
-                <div data-cxlab="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); transition: color 0.4s ease;">ARRIVING:</div>
-                <div data-cxbody="1" style="overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.45); white-space: pre-wrap; opacity: 0.55; transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;">The speaker is oriented toward an emotional destination. Pain or difficulty is a problem being moved through or escaped — there is a gap between where they are and where they need to be, and the song is oriented toward closing that gap. The implicit logic is: when X happens, I will be okay. Hallmarks: conditional futures ("when you come back," "once I get through this"), addressed to someone who needs to change or return, the speaker trying to convince themselves or someone else of something, trying to prevent a specific outcome, narrative arc that points forward.
+                <div data-cxlab="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); transition: color 0.4s ease;">ESCAPING:</div>
+                <div data-cxbody="1" style="overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.45); white-space: pre-wrap; opacity: 0.55; transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;">The speaker is oriented toward an emotional destination. Pain or difficulty is a problem being moved through or escaped — there is a gap between where they are and where they need to be, and the song is oriented toward closing that gap. The implicit logic is: when X happens, I will be okay. Hallmarks: conditional futures ("when you come back," "once I get through this"), addressed to someone who needs to change or return, the speaker trying to convince themselves or someone else of something, trying to prevent a specific outcome, narrative arc that points forward.
 
  ______
 /      \
@@ -137,12 +131,12 @@
 | \__/ |
 \______/
 </div>
-                <div data-cxsum="1" style="max-height: 0; overflow: hidden; opacity: 0; font-family: Lora, Georgia, serif; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.5; color: rgba(244,242,239,0.85); transition: max-height 0.5s ease, opacity 0.45s ease;">Arriving means the song gets us out of the hurt.</div>
+                <div data-cxsum="1" style="max-height: 0; overflow: hidden; opacity: 0; font-family: Lora, Georgia, serif; font-size: 23px; line-height: 1.45; color: rgba(244,242,239,0.85); transition: max-height 0.5s ease, opacity 0.45s ease;">Escaping means the song gets us out of the hurt.</div>
               </div>
 
               <div data-cxcat="1" data-cxhue="#ff2fd6" style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 0; min-width: 0; padding-top: 0; border-top: 0 solid #ff2fd6; transition: padding-top 0.5s ease, border-top-width 0.5s ease;">
-                <div data-cxlab="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); transition: color 0.4s ease;">DWELLING:</div>
-                <div data-cxbody="1" style="overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.45); white-space: pre-wrap; opacity: 0.55; transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;">The speaker inhabits a feeling with no destination. Pain or difficulty is the subject and is not being resolved — it is not framed as a problem to escape, just lived inside. The song ends where it started emotionally or spirals deeper in. Hallmarks: present tense continuous, questions that go unanswered, repetition that accumulates rather than builds, circular structure, first-person interiority without an addressee, unresolved pain/longing/fear/regret as the entire subject.
+                <div data-cxlab="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); transition: color 0.4s ease;">DWELLING:</div>
+                <div data-cxbody="1" style="overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.45); white-space: pre-wrap; opacity: 0.55; transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;">The speaker inhabits a feeling with no destination. Pain or difficulty is the subject and is not being resolved — it is not framed as a problem to escape, just lived inside. The song ends where it started emotionally or spirals deeper in. Hallmarks: present tense continuous, questions that go unanswered, repetition that accumulates rather than builds, circular structure, first-person interiority without an addressee, unresolved pain/longing/fear/regret as the entire subject.
 
  ______
 /      \
@@ -150,33 +144,35 @@
 | /--\ |
 \______/
 </div>
-                <div data-cxsum="1" style="max-height: 0; overflow: hidden; opacity: 0; font-family: Lora, Georgia, serif; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.5; color: rgba(244,242,239,0.85); transition: max-height 0.5s ease, opacity 0.45s ease;">Dwelling means the song stays in the hurt.</div>
+                <div data-cxsum="1" style="max-height: 0; overflow: hidden; opacity: 0; font-family: Lora, Georgia, serif; font-size: 23px; line-height: 1.45; color: rgba(244,242,239,0.85); transition: max-height 0.5s ease, opacity 0.45s ease;">Dwelling means the song stays in the hurt.</div>
               </div>
 
               <div data-cxcat="2" data-cxhue="#12c2b0" style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 0; min-width: 0; padding-top: 0; border-top: 0 solid #12c2b0; transition: padding-top 0.5s ease, border-top-width 0.5s ease;">
-                <div data-cxlab="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); transition: color 0.4s ease;">NARRATING:</div>
-                <div data-cxbody="1" style="overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.45); white-space: pre-wrap; opacity: 0.55; transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;">Everything else — storytelling, satire, indictment, celebration, absurdism, skits, songs with no personal emotional stake in suffering. Characters do things, time moves sequentially, there is plot — OR the speaker is content/joyful/confident/mocking/observing with no pain or difficulty being inhabited. Hallmarks: past tense dominates, named characters other than the speaker, temporal markers ("then," "after that," "by the time"), satirical or indicting tone aimed outward, pure celebration or ecstatic confidence with nothing to resolve, comedic skits, ambient tracks built from samples with no personal speaker.</div>
-                <div data-cxsum="1" style="max-height: 0; overflow: hidden; opacity: 0; font-family: Lora, Georgia, serif; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.5; color: rgba(244,242,239,0.85); transition: max-height 0.5s ease, opacity 0.45s ease;">Narrating songs are emotionally neutral.</div>
+                <div data-cxlab="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); transition: color 0.4s ease;">NARRATING:</div>
+                <div data-cxbody="1" style="overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.45); white-space: pre-wrap; opacity: 0.55; transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;">Everything else — storytelling, satire, indictment, celebration, absurdism, skits, songs with no personal emotional stake in suffering. Characters do things, time moves sequentially, there is plot — OR the speaker is content/joyful/confident/mocking/observing with no pain or difficulty being inhabited. Hallmarks: past tense dominates, named characters other than the speaker, temporal markers ("then," "after that," "by the time"), satirical or indicting tone aimed outward, pure celebration or ecstatic confidence with nothing to resolve, comedic skits, ambient tracks built from samples with no personal speaker.</div>
+                <div data-cxsum="1" style="max-height: 0; overflow: hidden; opacity: 0; font-family: Lora, Georgia, serif; font-size: 23px; line-height: 1.45; color: rgba(244,242,239,0.85); transition: max-height 0.5s ease, opacity 0.45s ease;">Narrating songs are emotionally neutral.</div>
               </div>
             </div>
+          </div>
+
+          <div data-cxrunline="1" style="display: flex; align-items: flex-start; gap: 0; opacity: 0; transition: opacity 0.35s ease;">
+            <div data-cxrun="1" style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 18.5px; line-height: 1.5; letter-spacing: 0; color: #3bff6e; text-shadow: 0 0 7px rgba(59,255,110,0.5); white-space: pre-wrap;"></div>
+            <span data-cxruncaret="1" style="display: none; width: 10px; height: 21px; margin-left: 2px; background: #3bff6e; box-shadow: 0 0 8px rgba(59,255,110,0.7); animation: caretBlink 1s step-end infinite;"></span>
           </div>
         </div>
       </div>
 
-        <div data-cxletters="1" style="position: absolute; inset: 0; opacity: 0; pointer-events: none;">
-        <span data-cxl="0" data-cxhue="#ffd23f" style="position: absolute; left: 0; top: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e;">A</span>
-        <span data-cxl="1" data-cxhue="#ff2fd6" style="position: absolute; left: 0; top: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e;">D</span>
-        <span data-cxl="2" data-cxhue="#12c2b0" style="position: absolute; left: 0; top: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e;">N</span>
+        <div data-cxletters="1" style="position: absolute; inset: 0; z-index: 3; opacity: 0; pointer-events: none;">
+        <span data-cxl="0" data-cxhue="#ffd23f" style="position: absolute; left: 0; top: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e;">escaping</span>
+        <span data-cxl="1" data-cxhue="#ff2fd6" style="position: absolute; left: 0; top: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e;">dwelling</span>
+        <span data-cxl="2" data-cxhue="#12c2b0" style="position: absolute; left: 0; top: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15.5px; font-weight: 700; letter-spacing: 0.04em; color: #3bff6e;">narrating</span>
       </div>
 
     <div data-cxscan="1" style="position: absolute; inset: 0; opacity: 0; pointer-events: none; background-image: repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.32) 2px 3px);"></div>
     </div>
 
-    <div data-ov="1" data-duo="1" data-z="51200" data-hold="2200" data-chapter="II — Dwellers vs arrivers" data-screen-label="Dwellers vs arrivers" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 5vh 5vw; opacity: 0; pointer-events: none;">
+    <div data-ov="1" data-duo="1" data-z="51200" data-chapter="II — Dwellers vs escapers" data-screen-label="Dwellers vs escapers" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 5vh 5vw; opacity: 0; pointer-events: none;">
       <canvas data-duocv="1" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
-      <div data-duomorph="1" style="position: absolute; right: 5vw; bottom: 20vh; width: min(28em, 46vw); text-align: right; opacity: 0; pointer-events: none;">
-        <p style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(21px, 2.1vw, 30px); font-weight: 400; line-height: 1.32; letter-spacing: -0.02em; text-wrap: pretty; color: rgba(244,242,239,0.88);">However, when albums commit fully to one direction, the picture stops being balanced.</p>
-      </div>
       <div style="position: relative; width: min(1240px, 100%); display: flex; align-items: flex-end; justify-content: center; gap: 5vw;">
       <div data-duogrid="1" style="position: relative; flex: 0 0 auto; display: flex; align-items: flex-end; gap: 3.4vw; opacity: 0;">
         <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">
@@ -214,12 +210,15 @@
               </button>
             </sc-for>
           </div>
-          <div style="margin-top: 4px; padding-top: 8px; border-top: 1px solid rgba(255,210,63,0.35); width: 100%; opacity: 0; transition: opacity 0.5s ease; font-family: Inter, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #ffd23f;" data-duolab="1">Pure arrivers</div>
+          <div style="margin-top: 4px; padding-top: 8px; border-top: 1px solid rgba(255,210,63,0.35); width: 100%; opacity: 0; transition: opacity 0.5s ease; font-family: Inter, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #ffd23f;" data-duolab="1">Pure escapers</div>
         </div>
       </div>
 
         <div data-duohead="1" style="flex: 1 1 auto; min-width: 0; max-width: 30em; display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 18px; opacity: 0; transition: opacity 0.5s ease;">
-          <h2 style="margin: 0; font-family: Inter, sans-serif; font-family: Lora, Georgia, serif; font-size: clamp(26px, 2.7vw, 38px); font-weight: 500; line-height: 1.15; letter-spacing: -0.035em; color: #fff; text-wrap: pretty; align-self: stretch; text-align: left;">Across the list, <span style="color: #ff2fd6;">pure Dwellers</span> outnumber <span style="color: #ffd23f;">pure Arrivers</span> 3.25 to 1.</h2>
+          <div style="align-self: stretch; display: grid;">
+            <p data-duoh-a="1" style="grid-area: 1 / 1; margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(26px, 2.7vw, 38px); font-weight: 500; line-height: 1.15; letter-spacing: -0.035em; color: rgba(244,242,239,0.92); text-wrap: pretty; text-align: left; opacity: 0;">However, when albums commit fully to one direction, the picture stops being balanced.</p>
+            <h2 data-duoh-b="1" style="grid-area: 1 / 1; margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(26px, 2.7vw, 38px); font-weight: 500; line-height: 1.15; letter-spacing: -0.035em; color: #fff; text-wrap: pretty; text-align: left; opacity: 0;">Across the list, <span style="color: #ff2fd6;">pure Dwellers</span> outnumber <span style="color: #ffd23f;">pure Escapers</span> 3.25 to 1.</h2>
+          </div>
           <div data-duosub="1" style="margin-top: -6px; align-self: stretch; text-align: left; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.5; letter-spacing: 0.01em; color: rgba(244,242,239,0.5); opacity: 0; transition: opacity 0.6s ease;">An album counts as “pure” when more than 70% of its songs share one orientation.</div>
           <div data-duohint="1" style="align-self: stretch; display: flex; align-items: center; justify-content: flex-start; text-align: left; gap: 9px; height: 22px; margin-bottom: 14px; font-family: Inter, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(244,242,239,0.62);"><span style="display: inline-block; width: 7px; height: 7px; border-radius: 999px; background: #f4f2ef;"></span>Hover over an album to read it</div>
           <div data-duocap="1" style="position: relative; width: 100%; height: 10.4em; overflow: visible; font-family: Lora, Georgia, serif; font-size: 16.5px; line-height: 1.5; color: rgba(244,242,239,0.72); text-wrap: pretty; opacity: 0; transition: opacity 0.25s ease;"></div>
@@ -227,11 +226,11 @@
       </div>
     </div>
 
-    <div data-ov="1" data-spec="1" data-z="54600" data-hold="5200" data-chapter="III — The full spectrum" data-screen-label="Spectrum" style="position: absolute; inset: 0; z-index: 40; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 4vh 3vw; opacity: 0; pointer-events: none;">
+    <div data-ov="1" data-spec="1" data-z="54600" data-chapter="III — The full spectrum" data-screen-label="Spectrum" style="position: absolute; inset: 0; z-index: 40; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 4vh 3vw; opacity: 0; pointer-events: none;">
       <div data-specchrome="1" style="width: min(1500px, 100%); display: flex; align-items: flex-end; justify-content: space-between; gap: 30px;">
         <div style="display: flex; flex-direction: column; gap: 7px;">
           <h2 style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(20px, 2vw, 29px); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; color: #fff;">Every album on the list, ordered by its relationship to pain.</h2>
-          <div style="font-family: Inter, sans-serif; font-size: 12px; line-height: 1.5; color: rgba(244,242,239,0.5);">490 classified albums, placed by dwelling minus arriving — 0 is a perfect balance.</div>
+          <div style="font-family: Inter, sans-serif; font-size: 12px; line-height: 1.5; color: rgba(244,242,239,0.5);">490 classified albums, placed by dwelling minus escaping — 0 is a perfect balance.</div>
         </div>
         <div data-speccap="1" style="flex: 0 0 auto; width: min(30em, 40vw); min-height: 74px; text-align: right; font-family: Lora, Georgia, serif; font-size: 14px; line-height: 1.5; color: rgba(244,242,239,0.62);">Hover any cover.</div>
       </div>
@@ -263,7 +262,7 @@
       </div>
     </div>
 
-    <div data-ov="1" data-contrib="1" data-z="62000" data-hold="3600" data-chapter="One last thing" data-screen-label="Contribute" style="position: absolute; inset: 0; z-index: 42; display: flex; flex-direction: column; align-items: stretch; justify-content: center; padding: 3vh 6vw 3vh; opacity: 0; pointer-events: none;">
+    <div data-ov="1" data-contrib="1" data-z="62000" data-chapter="One last thing" data-screen-label="Contribute" style="position: absolute; inset: 0; z-index: 42; display: flex; flex-direction: column; align-items: stretch; justify-content: center; padding: 3vh 6vw 3vh; opacity: 0; pointer-events: none;">
       <div style="flex: 0 1 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 9vh 0 0;">
       <canvas data-dotlines="sad music|radio" data-fit="3.2" data-grid="26" data-dot="0.5" data-tech="1" style="display: block; flex: 0 0 auto; width: min(24em, 39vw);"></canvas>
 
@@ -347,7 +346,7 @@
       </div>
     </div>
 
-    <div data-ov="1" data-z="70900" data-hold="480" data-chapter="Method &amp; caveats" data-screen-label="Method" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 8vh 6vw; opacity: 0; pointer-events: none;">
+    <div data-ov="1" data-z="70900" data-chapter="Method &amp; caveats" data-screen-label="Method" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 8vh 6vw; opacity: 0; pointer-events: none;">
       <div style="max-width: 900px; display: flex; gap: 5vw;">
         <div style="max-width: 20em; display: flex; flex-direction: column; gap: 10px;">
           <div style="font-size: 9.5px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(244,242,239,0.4);">method</div>
@@ -364,33 +363,11 @@
       </div>
     </div>
 
-    <div data-ov="1" data-z="75600" data-hold="2000" data-chapter="The archive" data-screen-label="Archive closer" style="position: absolute; inset: 0; z-index: 42; display: flex; align-items: center; justify-content: center; padding: 7vh 6vw; opacity: 0; pointer-events: none;">
+    <div data-ov="1" data-z="75600" data-chapter="The archive" data-screen-label="Archive closer" style="position: absolute; inset: 0; z-index: 42; display: flex; align-items: center; justify-content: center; padding: 7vh 6vw; opacity: 0; pointer-events: none;">
       <div style="width: min(46em, 100%); display: flex; flex-direction: column; gap: 16px; max-height: 82vh;">
         <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;">
           <h2 style="margin: 0; font-family: Lora, Georgia, serif; font-size: clamp(20px, 2vw, 28px); font-weight: 500; letter-spacing: -0.025em; color: #fff;">Songs strangers reach for when they want it to hurt.</h2>
         </div>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 30px; padding: 6px 0 10px;">
-          <button onClick="{{ radioPrev }}" aria-label="Previous" style="display: flex; align-items: center; gap: 2px; padding: 8px; border: 0; background: transparent; cursor: pointer; opacity: 0.72;" style-hover="opacity: 1;">
-            <span style="display: block; width: 3px; height: 17px; background: #f4f2ef;"></span>
-            <span style="display: block; width: 0; height: 0; border-right: 13px solid #f4f2ef; border-top: 9px solid transparent; border-bottom: 9px solid transparent;"></span>
-          </button>
-          <button onClick="{{ playRadio }}" aria-label="{{ radioLabel }}" style="display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0; border: 0; border-radius: 50%; background: #f4f2ef; cursor: pointer;" style-hover="background: #fff;">
-            <sc-if value="{{ radioOn }}" hint-placeholder-val="{{ false }}">
-              <span style="display: flex; align-items: center; gap: 5px;">
-                <span style="display: block; width: 5px; height: 18px; background: #0a0a0a;"></span>
-                <span style="display: block; width: 5px; height: 18px; background: #0a0a0a;"></span>
-              </span>
-            </sc-if>
-            <sc-if value="{{ radioOff }}" hint-placeholder-val="{{ true }}">
-              <span style="display: block; margin-left: 4px; width: 0; height: 0; border-left: 17px solid #0a0a0a; border-top: 11px solid transparent; border-bottom: 11px solid transparent;"></span>
-            </sc-if>
-          </button>
-          <button onClick="{{ radioSkip }}" aria-label="Next" style="display: flex; align-items: center; gap: 2px; padding: 8px; border: 0; background: transparent; cursor: pointer; opacity: 0.72;" style-hover="opacity: 1;">
-            <span style="display: block; width: 0; height: 0; border-left: 13px solid #f4f2ef; border-top: 9px solid transparent; border-bottom: 9px solid transparent;"></span>
-            <span style="display: block; width: 3px; height: 17px; background: #f4f2ef;"></span>
-          </button>
-        </div>
-
         <div style="overflow-y: auto; padding-right: 6px;">
         <sc-for list="{{ arcRows }}" as="r" hint-placeholder-count="6">
           <div style="display: flex; align-items: center; gap: 14px; padding: 11px 0; border-bottom: 1px solid rgba(244,242,239,0.08); animation: {{ r.anim }};">
@@ -439,7 +416,11 @@
       <div data-tgcap-t="1" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; text-align: center; color: rgba(244,242,239,0.55);"></div>
       <div data-tgcap-b="1" style="display: none;"></div>
     </div>
-    <div data-tgbox="1" style="position: relative; margin-top: 30px;">
+    <div data-tgbox="1" style="position: relative; margin-top: 30px; padding-left: 14px;">
+      <div style="position: absolute; left: 0; top: 0; bottom: 0; display: flex; align-items: center; pointer-events: none;">
+        <div style="transform: rotate(180deg); writing-mode: vertical-rl; font-family: Inter, sans-serif; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; color: rgba(244,242,239,0.62);">Share of songs</div>
+      </div>
+      <div data-tgticks="1" style="position: absolute; left: 14px; right: 0; top: 0; bottom: 0; pointer-events: none; opacity: 0; transition: opacity 0.4s ease;"></div>
       <canvas data-tgcanvas="1" style="display: block; width: 100%; height: 124px;"></canvas>
       <div data-tgover="1" style="position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.4s ease;">
         <sc-for list="{{ marks }}" as="m" hint-placeholder-count="6">
@@ -514,8 +495,12 @@
 
   <div data-spacer="1" style="height: 40000px; width: 1px;"></div>
 
+    <div data-pacehud="1" style="position: fixed; left: 14px; bottom: 14px; z-index: 90; display: none; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 8px; background: rgba(7,7,7,0.84); border: 1px solid rgba(244,242,239,0.14); backdrop-filter: blur(9px); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10.5px; line-height: 1.55; color: rgba(244,242,239,0.55);">
+      <div style="display: flex; justify-content: space-between; gap: 20px; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(244,242,239,0.3);"><span>screen</span><span>fly · hold</span></div>
+      <div data-pacerows="1" style="display: flex; flex-direction: column; gap: 1px;"></div>
+    </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;hoverRadius&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:300,&quot;min&quot;:60,&quot;max&quot;:900,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover type&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;hoverStrength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover type&quot;,&quot;unit&quot;:&quot;×&quot;},&quot;technicolor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Cover type&quot;},&quot;ringRadius&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:460,&quot;min&quot;:220,&quot;max&quot;:900,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover ring&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;ringTile&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:78,&quot;min&quot;:36,&quot;max&quot;:170,&quot;step&quot;:2,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover ring&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;ringSecs&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:120,&quot;min&quot;:15,&quot;max&quot;:400,&quot;step&quot;:5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover ring&quot;,&quot;unit&quot;:&quot;s&quot;},&quot;ringOpacity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.85,&quot;min&quot;:0.15,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover ring&quot;},&quot;flySpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.3,&quot;max&quot;:3,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;,&quot;unit&quot;:&quot;×&quot;},&quot;holdScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.2,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;,&quot;unit&quot;:&quot;×&quot;},&quot;perspective&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1000,&quot;min&quot;:400,&quot;max&quot;:2200,&quot;step&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;nearClip&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:150,&quot;min&quot;:40,&quot;max&quot;:600,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;farClip&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:7000,&quot;min&quot;:2000,&quot;max&quot;:16000,&quot;step&quot;:250,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;fadeInDepth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:5200,&quot;min&quot;:1000,&quot;max&quot;:14000,&quot;step&quot;:200,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;spread&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.2,&quot;max&quot;:2.4,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;,&quot;unit&quot;:&quot;×&quot;},&quot;bgColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#070707&quot;,&quot;options&quot;:[&quot;#070707&quot;,&quot;#000000&quot;,&quot;#0d0d10&quot;,&quot;#12100e&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colour&quot;},&quot;inkColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f4f2ef&quot;,&quot;options&quot;:[&quot;#f4f2ef&quot;,&quot;#ffffff&quot;,&quot;#e6e2d8&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colour&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f2d24b&quot;,&quot;options&quot;:[&quot;#f2d24b&quot;,&quot;#e8ff5a&quot;,&quot;#ff6b3d&quot;,&quot;#7fd4ff&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colour&quot;},&quot;coverSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:300,&quot;min&quot;:120,&quot;max&quot;:620,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Covers&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;spreadX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:760,&quot;min&quot;:200,&quot;max&quot;:1600,&quot;step&quot;:20,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Covers&quot;},&quot;spreadY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:440,&quot;min&quot;:120,&quot;max&quot;:1000,&quot;step&quot;:20,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Covers&quot;},&quot;tileSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:86,&quot;min&quot;:50,&quot;max&quot;:150,&quot;step&quot;:2,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Covers&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;starCount&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:14,&quot;min&quot;:0,&quot;max&quot;:40,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stickers&quot;},&quot;starSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:130,&quot;min&quot;:40,&quot;max&quot;:320,&quot;step&quot;:5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stickers&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;halftoneCols&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:35,&quot;min&quot;:14,&quot;max&quot;:50,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Charts&quot;},&quot;halftoneDot&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:12,&quot;min&quot;:4,&quot;max&quot;:22,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Charts&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;halftoneGap&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:5,&quot;min&quot;:1,&quot;max&quot;:16,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Charts&quot;,&quot;unit&quot;:&quot;px&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;hoverRadius&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:300,&quot;min&quot;:60,&quot;max&quot;:900,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover type&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;hoverStrength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:3,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover type&quot;,&quot;unit&quot;:&quot;×&quot;},&quot;technicolor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Cover type&quot;},&quot;ringRadius&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:460,&quot;min&quot;:220,&quot;max&quot;:900,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover ring&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;ringTile&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:138,&quot;min&quot;:36,&quot;max&quot;:170,&quot;step&quot;:2,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover ring&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;ringSecs&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:120,&quot;min&quot;:15,&quot;max&quot;:400,&quot;step&quot;:5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover ring&quot;,&quot;unit&quot;:&quot;s&quot;},&quot;ringOpacity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.85,&quot;min&quot;:0.15,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cover ring&quot;},&quot;flySpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.3,&quot;max&quot;:3,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot;× flight speed&quot;},&quot;holdScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.3,&quot;max&quot;:3,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot;× all holds&quot;},&quot;pacingHud&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Pacing&quot;},&quot;perspective&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1000,&quot;min&quot;:400,&quot;max&quot;:2200,&quot;step&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;nearClip&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:150,&quot;min&quot;:40,&quot;max&quot;:600,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;farClip&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:7000,&quot;min&quot;:2000,&quot;max&quot;:16000,&quot;step&quot;:250,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;fadeInDepth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:5200,&quot;min&quot;:1000,&quot;max&quot;:14000,&quot;step&quot;:200,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;spread&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.2,&quot;max&quot;:2.4,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;,&quot;unit&quot;:&quot;×&quot;},&quot;bgColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#070707&quot;,&quot;options&quot;:[&quot;#070707&quot;,&quot;#000000&quot;,&quot;#0d0d10&quot;,&quot;#12100e&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colour&quot;},&quot;inkColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f4f2ef&quot;,&quot;options&quot;:[&quot;#f4f2ef&quot;,&quot;#ffffff&quot;,&quot;#e6e2d8&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colour&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f2d24b&quot;,&quot;options&quot;:[&quot;#f2d24b&quot;,&quot;#e8ff5a&quot;,&quot;#ff6b3d&quot;,&quot;#7fd4ff&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colour&quot;},&quot;coverSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:300,&quot;min&quot;:120,&quot;max&quot;:620,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Covers&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;spreadX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:760,&quot;min&quot;:200,&quot;max&quot;:1600,&quot;step&quot;:20,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Covers&quot;},&quot;spreadY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:440,&quot;min&quot;:120,&quot;max&quot;:1000,&quot;step&quot;:20,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Covers&quot;},&quot;tileSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:86,&quot;min&quot;:50,&quot;max&quot;:150,&quot;step&quot;:2,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Covers&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;starCount&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:14,&quot;min&quot;:0,&quot;max&quot;:40,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stickers&quot;},&quot;starSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:130,&quot;min&quot;:40,&quot;max&quot;:320,&quot;step&quot;:5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stickers&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;halftoneCols&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:35,&quot;min&quot;:14,&quot;max&quot;:50,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Charts&quot;},&quot;halftoneDot&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:12,&quot;min&quot;:4,&quot;max&quot;:22,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Charts&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;halftoneGap&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:5,&quot;min&quot;:1,&quot;max&quot;:16,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Charts&quot;,&quot;unit&quot;:&quot;px&quot;},&quot;flyTitle&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; in&quot;},&quot;holdTitle&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.5,&quot;min&quot;:0,&quot;max&quot;:16,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; held&quot;},&quot;flyState&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.8,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; in&quot;},&quot;holdState&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:4.6,&quot;min&quot;:0,&quot;max&quot;:16,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; held&quot;},&quot;flyCorpus&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.6,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; in&quot;},&quot;holdCorpus&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:15,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; held&quot;},&quot;flyDuo&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:4.5,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; in&quot;},&quot;holdDuo&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2.4,&quot;min&quot;:0,&quot;max&quot;:16,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; held&quot;},&quot;flySpectrum&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.1,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; in&quot;},&quot;holdSpectrum&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:5.8,&quot;min&quot;:0,&quot;max&quot;:16,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; held&quot;},&quot;flyRadio&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2.3,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; in&quot;},&quot;holdRadio&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:4,&quot;min&quot;:0,&quot;max&quot;:16,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; held&quot;},&quot;flyMethod&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2.8,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; in&quot;},&quot;holdMethod&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.5,&quot;min&quot;:0,&quot;max&quot;:16,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; held&quot;},&quot;flyArchive&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.5,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; in&quot;},&quot;holdArchive&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2.2,&quot;min&quot;:0,&quot;max&quot;:16,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pacing&quot;,&quot;unit&quot;:&quot; held&quot;}}">
 const FONT = {
   A:["01110","10001","10001","11111","10001","10001","10001"],
   C:["01110","10001","10000","10000","10000","10001","01110"],
@@ -537,7 +522,7 @@ const FONT = {
   " ":["00000","00000","00000","00000","00000","00000","00000"]
 };
 
-// [rank, artist, album, year, dwelling, arriving, narrating]
+// [rank, artist, album, year, dwelling, escaping, narrating]
 const ALBUMS = [
   [282,"Frank Sinatra","In the Wee Small Hours",1955,.8125,.1875,0],
   [332,"Elvis Presley","Elvis Presley",1956,.1333,.4333,.4333],
@@ -648,7 +633,7 @@ const ALBUMS = [
 
 const CATDEF = {
   d: { name: "dwelling · stays in it", def: "Sits inside the feeling with nowhere to go. No destination, no exit — the song ends where it started." },
-  a: { name: "arriving · moves through it", def: "Treats the pain as a gap to close. The song travels toward relief and gets somewhere by the end." },
+  a: { name: "escaping · moves through it", def: "Treats the pain as a gap to close. The song travels toward relief and gets somewhere by the end." },
   n: { name: "narrating · observes it", def: "Tells it from the outside. The wound is reported rather than lived — a story about someone in pain." }
 };
 
@@ -657,9 +642,9 @@ const YEARLY = [[1955,0.8125,0.1875,0,1],[1956,0.1333,0.4333,0.4333,1],[1957,0.0
 const SPEC = [[461,"Bon Iver","For Emma",2008,100,0,0,"461_bon-iver_for-emma.jpg"],[116,"The Cure","Disintegration",1989,92,8,0,"116_the-cure_disintegration.jpg"],[276,"Radiohead","The Bends",1995,83,17,0,"276_radiohead_the-bends.jpg"],[282,"Frank Sinatra","In the Wee Small Hours",1955,81,19,0,"282_frank-sinatra_in-the-wee-small-hours.jpg"],[173,"Nirvana","In Utero",1993,83,8,8,"173_nirvana_in-utero.jpg"],[233,"Tori Amos","Little Earthquakes",1992,75,25,0,"233_tori-amos_little-earthquakes.jpg"],[131,"Portishead","Dummy",1994,73,27,0,"131_portishead_dummy.jpg"],[358,"Olivia Rodrigo","Sour",2021,73,27,0,"358_olivia-rodrigo_sour.jpg"],[211,"Joy Divison","Unknown Pleasures",1980,80,10,10,"211_joy-divison_unknown-pleasures.jpg"],[127,"Ray Charles","Modern Sounds in Country and Western Music",1962,75,17,8,"127_ray-charles_modern-sounds-in-country-and-western-mus.jpg"],[216,"Elliott Smith","Either/Or",1997,67,33,0,"216_elliott-smith_eitheror.jpg"],[180,"Love","Forever Changes",1967,73,18,9,"180_love_forever-changes.jpg"],[195,"Leonard Cohen","Songs of Leonard Cohen",1967,69,25,6,"195_leonard-cohen_songs-of-leonard-cohen.jpg"],[262,"New Order","Power, Corruption & Lies",1983,63,38,0,"262_new-order_power-corruption-lies.jpg"],[91,"Bruce Springsteen","Darkness on the Edge of Town",1978,60,40,0,"091_bruce-springsteen_darkness-on-the-edge-of-town.jpg"],[444,"Fiona Apple","Extraordinary Machine",2005,67,25,8,"444_fiona-apple_extraordinary-machine.jpg"],[454,"Can","Ege Bamyasi",1972,71,14,14,"454_can_ege-bamyasi.jpg"],[133,"Joni Mitchell","Hejira",1976,67,22,11,"133_joni-mitchell_hejira.jpg"],[170,"Taylor Swift","Folklore",2020,69,19,13,"170_taylor-swift_folklore.jpg"],[309,"Joy Division","Closer",1980,67,22,11,"309_joy-division_closer.jpg"],[225,"Wilco","Yankee Hotel Foxtrot",2001,55,45,0,"225_wilco_yankee-hotel-foxtrot.jpg"],[398,"The Raincoats","The Raincoats",1979,73,9,18,"398_the-raincoats_the-raincoats.jpg"],[60,"Van Morrison","Astral Weeks",1968,63,25,13,"060_van-morrison_astral-weeks.jpg"],[107,"Television","Marquee Moon",1977,63,25,13,"107_television_marquee-moon.jpg"],[165,"R.E.M.","Murmur",1983,67,17,17,"165_rem_murmur.jpg"],[294,"Weezer","Weezer (The Blue Album)",1994,60,30,10,"294_weezer_weezer-the-blue-album.jpg"],[317,"Billie Holiday","Lady in Satin",1958,58,33,8,"317_billie-holiday_lady-in-satin.jpg"],[387,"Radiohead","In Rainbows",2007,50,50,0,"387_radiohead_in-rainbows.jpg"],[453,"Nine Inch Nails","Pretty Hate Machine",1989,58,33,8,"453_nine-inch-nails_pretty-hate-machine.jpg"],[488,"The Stooges","The Stooges",1969,58,35,8,"488_the-stooges_the-stooges.jpg"],[375,"Green Day","Dookie",1994,60,27,13,"375_green-day_dookie.jpg"],[33,"Amy Winehouse","Back to Black",2006,55,36,9,"033_amy-winehouse_back-to-black.jpg"],[341,"The Smashing Pumpkins","Siamese Dream",1993,54,38,8,"341_the-smashing-pumpkins_siamese-dream.jpg"],[231,"Tom Petty and the Heartbreakers","Damn the Torpedoes",1979,44,56,0,"231_tom-petty-and-the-heartbreakers_damn-the-torpedoes.jpg"],[199,"Pavement","Slanted and Enchanted",1993,64,14,21,"199_pavement_slanted-and-enchanted.jpg"],[407,"Neil Young","Everybody Knows This Is Nowhere",1969,43,57,0,"407_neil-young_everybody-knows-this-is-nowhere.jpg"],[442,"The Weeknd","Beauty Behind the Madness",2015,64,14,21,"442_the-weeknd_beauty-behind-the-madness.jpg"],[472,"SZA","Ctrl",2017,50,43,7,"472_sza_ctrl.jpg"],[106,"Hole","Live Through This",1994,67,8,25,"106_hole_live-through-this.jpg"],[124,"U2","Achtung Baby",1991,50,42,8,"124_u2_achtung-baby.jpg"],[244,"Kanye West","808s & Heartbreak",2008,50,42,8,"244_kanye-west_808s-heartbreak.jpg"],[6,"Nirvana","Nevermind",1991,58,25,17,"006_nirvana_nevermind.jpg"],[68,"Kate Bush","Hounds of Love",1985,58,25,17,"068_kate-bush_hounds-of-love.jpg"],[79,"Frank Ocean","Blond",2016,65,12,24,"079_frank-ocean_blond.jpg"],[220,"Crosby, Stills, Nash, and Young","Déjà Vu",1970,50,40,10,"220_crosby-stills-nash-and-young_deja-vu.jpg"],[443,"David Bowie","Scary Monsters",1980,50,40,10,"443_david-bowie_scary-monsters.jpg"],[147,"Jeff Buckley","Grace",1994,55,27,18,"147_jeff-buckley_grace.jpg"],[301,"New York Dolls","New York Dolls",1973,55,27,18,"301_new-york-dolls_new-york-dolls.jpg"],[315,"Rosalía","El Mal Querer",2018,55,27,18,"315_rosalia_el-mal-querer.jpg"],[460,"Lorde","Melodrama",2017,55,27,18,"460_lorde_melodrama.jpg"],[73,"My Bloody Valentine","Loveless",1991,45,45,9,"073_my-bloody-valentine_loveless.jpg"],[479,"Selena","Amor Prohibido",1994,45,45,9,"479_selena_amor-prohibido.jpg"],[265,"Pavement","Wowee Zowee",1995,56,22,22,"265_pavement_wowee-zowee.jpg"],[272,"The Velvet Underground","White Light/White Heat",1968,67,0,33,"272_the-velvet-underground_white-lightwhite-heat.jpg"],[299,"B.B. King","Live at the Regal",1965,56,22,22,"299_bb-king_live-at-the-regal.jpg"],[429,"The Four Tops","Reach Out",1967,42,50,8,"429_the-four-tops_reach-out.jpg"],[433,"LCD Soundsystem","Sound of Silver",2007,56,22,22,"433_lcd-soundsystem_sound-of-silver.jpg"],[52,"David Bowie","Station to Station",1976,33,67,0,"052_david-bowie_station-to-station.jpg"],[328,"Vampire Weekend","Modern Vampires of the City",2013,58,17,25,"328_vampire-weekend_modern-vampires-of-the-city.jpg"],[98,"Lucinda Williams","Car Wheels on a Gravel Road",1998,46,38,15,"098_lucinda-williams_car-wheels-on-a-gravel-road.jpg"],[222,"Madonna","Ray of Light",1998,46,38,15,"222_madonna_ray-of-light.jpg"],[374,"Robert Johnson","King of the Delta Blues Singers",1961,31,69,0,"374_robert-johnson_king-of-the-delta-blues-singers.jpg"],[469,"Manu Chao","Clandestino",1998,56,19,25,"469_manu-chao_clandestino.jpg"],[3,"Joni Mitchell","Blue",1971,50,30,20,"003_joni-mitchell_blue.jpg"],[9,"Bob Dylan","Blood on the Tracks",1975,40,50,10,"009_bob-dylan_blood-on-the-tracks.jpg"],[104,"The Rolling Stones","Sticky Fingers",1971,50,30,20,"104_the-rolling-stones_sticky-fingers.jpg"],[108,"Fiona Apple","When the Pawn …",1999,40,50,10,"108_fiona-apple_when-the-pawn.jpg"],[215,"Grateful Dead","American Beauty",1970,50,30,20,"215_grateful-dead_american-beauty.jpg"],[258,"Joni Mitchell","The Hissing of Summer Lawns",1975,60,10,30,"258_joni-mitchell_the-hissing-of-summer-lawns.jpg"],[457,"Sinéad O’Connor","I Do Not Want What I Haven’t Got",1990,50,30,20,"457_sinead-oconnor_i-do-not-want-what-i-havent-got.jpg"],[481,"Belle and Sebastian","If You’re Feeling Sinister",1996,50,30,20,"481_belle-and-sebastian_if-youre-feeling-sinister.jpg"],[490,"Linda Ronstadt","Heart Like a Wheel",1975,40,50,10,"490_linda-ronstadt_heart-like-a-wheel.jpg"],[256,"Tracy Chapman","Tracy Chapman",1988,43,43,14,"256_tracy-chapman_tracy-chapman.jpg"],[320,"X","Los Angeles",1980,50,29,21,"320_x_los-angeles.jpg"],[376,"Neutral Milk Hotel","In the Aeroplane Over the Sea",1998,55,18,27,"376_neutral-milk-hotel_in-the-aeroplane-over-the-sea.jpg"],[383,"Massive Attack","Mezzanine",1998,55,18,27,"383_massive-attack_mezzanine.jpg"],[160,"Pearl Jam","Ten",1991,36,55,9,"160_pearl-jam_ten.jpg"],[229,"Patsy Cline","The Ultimate Collection",2000,37,53,10,"229_patsy-cline_the-ultimate-collection.jpg"],[463,"Laura Nyro","Eli & the 13th Confession",1968,47,33,20,"463_laura-nyro_eli-the-13th-confession.jpg"],[351,"SZA","SOS",2022,43,39,17,"351_sza_sos.jpg"],[213,"Fiona Apple","The Idler Wheel",2012,50,25,25,"213_fiona-apple_the-idler-wheel.jpg"],[359,"Big Star","Radio City",1974,42,42,17,"359_big-star_radio-city.jpg"],[419,"Eric Church","Chief",2011,50,25,25,"419_eric-church_chief.jpg"],[458,"Jason Isbell","Southeastern",2013,50,25,25,"458_jason-isbell_southeastern.jpg"],[477,"Howlin’ Wolf","Moanin’ in the Moonlight",1959,42,42,17,"477_howlin-wolf_moanin-in-the-moonlight.jpg"],[390,"Pixies","Surfer Rosa",1988,62,0,38,"390_pixies_surfer-rosa.jpg"],[83,"Dusty Springfield","Dusty in Memphis",1969,46,31,23,"083_dusty-springfield_dusty-in-memphis.jpg"],[172,"Simon and Garfunkel","Bridge Over Troubled Water",1970,31,62,8,"172_simon-and-garfunkel_bridge-over-troubled-water.jpg"],[189,"Sleater-Kinney","Dig Me Out",1997,54,15,31,"189_sleater-kinney_dig-me-out.jpg"],[224,"Dixie Chicks","Fly",1999,38,46,15,"224_dixie-chicks_fly.jpg"],[248,"Green Day","American Idiot",2004,46,31,23,"248_green-day_american-idiot.jpg"],[1,"Marvin Gaye","What’s Going On",1971,44,33,22,"001_marvin-gaye_whats-going-on.jpg"],[26,"Patti Smith","Horses",1975,44,33,22,"026_patti-smith_horses.jpg"],[38,"Bob Dylan","Blonde on Blonde",1966,36,50,14,"038_bob-dylan_blonde-on-blonde.jpg"],[321,"Lana Del Rey","Norman Fucking Rockwell!",2019,43,36,21,"321_lana-del-rey_norman-fucking-rockwell.jpg"],[361,"My Chemical Romance","The Black Parade",2006,36,50,14,"361_my-chemical-romance_the-black-parade.jpg"],[493,"Marvin Gaye","Here, My Dear",1978,43,36,21,"493_marvin-gaye_here-my-dear.jpg"],[113,"The Smiths","The Queen Is Dead",1986,50,20,30,"113_the-smiths_the-queen-is-dead.jpg"],[150,"Bruce Springsteen","Nebraska",1982,40,40,20,"150_bruce-springsteen_nebraska.jpg"],[202,"Björk","Homogenic",1997,30,60,10,"202_bjork_homogenic.jpg"],[249,"Whitney Houston","Whitney Houston",1985,30,60,10,"249_whitney-houston_whitney-houston.jpg"],[264,"Pink Floyd","Wish You Were Here",1975,60,0,40,"264_pink-floyd_wish-you-were-here.jpg"],[456,"Al Green","Greatest Hits",1975,30,60,10,"456_al-green_greatest-hits.jpg"],[20,"Radiohead","Kid A",2000,55,9,36,"020_radiohead_kid-a.jpg"],[129,"Pink Floyd","The Wall",1979,46,27,27,"129_pink-floyd_the-wall.jpg"],[188,"T. Rex","Electric Warrior",1971,55,9,36,"188_t-rex_electric-warrior.jpg"],[110,"Joni Mitchell","Court and Spark",1974,45,27,27,"110_joni-mitchell_court-and-spark.jpg"],[135,"U2","The Joshua Tree",1987,36,45,18,"135_u2_the-joshua-tree.jpg"],[182,"James Taylor","Sweet Baby James",1970,45,27,27,"182_james-taylor_sweet-baby-james.jpg"],[203,"Nick Drake","Pink Moon",1972,45,27,27,"203_nick-drake_pink-moon.jpg"],[324,"Coldplay","A Rush of Blood to the Head",2002,27,64,9,"324_coldplay_a-rush-of-blood-to-the-head.jpg"],[331,"Madonna","Like a Prayer",1989,36,45,18,"331_madonna_like-a-prayer.jpg"],[462,"The Flying Burrito Brothers","The Gilded Palace of Sin",1969,45,27,27,"462_the-flying-burrito-brothers_the-gilded-palace-of-sin.jpg"],[496,"Shakira","Dónde Están los Ladrones",1998,36,45,18,"496_shakira_donde-estan-los-ladrones.jpg"],[7,"Fleetwood Mac","Rumours",1977,42,33,25,"007_fleetwood-mac_rumours.jpg"],[243,"The Zombies","Odessey and Oracle",1968,42,33,25,"243_the-zombies_odessey-and-oracle.jpg"],[32,"Beyoncé","Lemonade",2016,33,50,17,"032_beyonce_lemonade.jpg"],[114,"The Strokes","Is This It",2001,33,50,17,"114_the-strokes_is-this-it.jpg"],[142,"Bruce Springsteen","Born in the U.S.A.",1984,33,50,17,"142_bruce-springsteen_born-in-the-usa.jpg"],[406,"Magnetic Fields","69 Love Songs",1999,43,30,27,"406_magnetic-fields_69-love-songs.jpg"],[75,"Aretha Franklin","Lady Soul",1968,36,43,21,"075_aretha-franklin_lady-soul.jpg"],[175,"Kendrick Lamar","DAMN.",2017,36,43,21,"175_kendrick-lamar_damn.jpg"],[484,"Lady Gaga","Born This Way",2011,36,43,21,"484_lady-gaga_born-this-way.jpg"],[486,"John Mayer","Continuum",2006,38,38,23,"486_john-mayer_continuum.jpg"],[279,"Nirvana","MTV Unplugged in New York",1994,47,20,33,"279_nirvana_mtv-unplugged-in-new-york.jpg"],[487,"Black Flag","Damaged",1981,47,20,33,"487_black-flag_damaged.jpg"],[39,"Talking Heads","Remain in Light",1980,38,38,25,"039_talking-heads_remain-in-light.jpg"],[369,"Mobb Deep","The Infamous",1995,38,38,25,"369_mobb-deep_the-infamous.jpg"],[148,"Frank Ocean","Channel Orange",2012,41,29,29,"148_frank-ocean_channel-orange.jpg"],[118,"The Eagles","Hotel California",1976,44,22,33,"118_the-eagles_hotel-california.jpg"],[296,"Neil Young","Rust Never Sleeps",1979,33,44,22,"296_neil-young_rust-never-sleeps.jpg"],[418,"Dire Straits","Brothers in Arms",1985,44,22,33,"418_dire-straits_brothers-in-arms.jpg"],[44,"Nas","Illmatic",1994,40,30,30,"044_nas_illmatic.jpg"],[72,"Neil Young","Harvest",1972,30,50,20,"072_neil-young_harvest.jpg"],[285,"Big Star","Third/Sister Lovers",1978,42,26,32,"285_big-star_thirdsister-lovers.jpg"],[308,"Brian Eno","Here Come the Warm Jets",1974,50,10,40,"308_brian-eno_here-come-the-warm-jets.jpg"],[500,"Arcade Fire","Funeral",2004,40,30,30,"500_arcade-fire_funeral.jpg"],[86,"The Doors","The Doors",1967,36,36,27,"086_the-doors_the-doors.jpg"],[88,"David Bowie","Hunky Dory",1971,45,18,36,"088_david-bowie_hunky-dory.jpg"],[90,"Neil Young","After the Gold Rush",1970,45,18,36,"090_neil-young_after-the-gold-rush.jpg"],[100,"The Band","Music From Big Pink",1968,27,55,18,"100_the-band_music-from-big-pink.jpg"],[157,"Oasis","(What’s the Story) Morning Glory?",1995,42,25,33,"157_oasis_whats-the-story-morning-glory.jpg"],[162,"Pulp","Different Class",1995,42,25,33,"162_pulp_different-class.jpg"],[181,"Bob Dylan","Bringing It All Back Home",1965,36,36,27,"181_bob-dylan_bringing-it-all-back-home.jpg"],[212,"Nina Simone","Wild Is the Wind",1966,36,36,27,"212_nina-simone_wild-is-the-wind.jpg"],[348,"Gillian Welch","Time (The Revelator)",2001,45,18,36,"348_gillian-welch_time-the-revelator.jpg"],[372,"Big Brother and the Holding Company","Cheap Thrills",1968,36,36,27,"372_big-brother-and-the-holding-company_cheap-thrills.jpg"],[400,"The Go-Go’s","Beauty and the Beat",1981,36,36,27,"400_the-go-gos_beauty-and-the-beat.jpg"],[448,"Otis Redding","Dictionary of Soul",1966,42,25,33,"448_otis-redding_dictionary-of-soul.jpg"],[494,"The Ronettes","Presenting the Fabulous Ronettes",1964,17,75,8,"494_the-ronettes_presenting-the-fabulous-ronettes.jpg"],[13,"Aretha Franklin","I Never Loved a Man the Way I Love You",1967,25,58,17,"013_aretha-franklin_i-never-loved-a-man-the-way-i-love-you.jpg"],[69,"Alanis Morissette","Jagged Little Pill",1995,31,46,23,"069_alanis-morissette_jagged-little-pill.jpg"],[149,"John Prine","John Prine",1971,46,15,38,"149_john-prine_john-prine.jpg"],[226,"Derek and the Dominos","Layla and Other Assorted Love Songs",1970,29,50,21,"226_derek-and-the-dominos_layla-and-other-assorted-love-songs.jpg"],[273,"Gang of Four","Entertainment!",1979,50,8,42,"273_gang-of-four_entertainment.jpg"],[322,"Elvis Presley","From Elvis in Memphis",1969,33,42,25,"322_elvis-presley_from-elvis-in-memphis.jpg"],[346,"Arctic Monkeys","AM",2013,33,42,25,"346_arctic-monkeys_am.jpg"],[389,"Mariah Carey","The Emancipation of Mimi",2005,29,50,21,"389_mariah-carey_the-emancipation-of-mimi.jpg"],[426,"Lucinda Williams","Lucinda Williams",1988,25,58,17,"426_lucinda-williams_lucinda-williams.jpg"],[478,"The Kinks","Something Else by the Kinks",1968,31,46,23,"478_the-kinks_something-else-by-the-kinks.jpg"],[121,"Elvis Costello","This Year’s Model",1978,38,31,31,"121_elvis-costello_this-years-model.jpg"],[152,"The Pretenders","Pretenders",1980,38,31,31,"152_the-pretenders_pretenders.jpg"],[164,"Johnny Cash","At Folsom Prison",1968,38,31,31,"164_johnny-cash_at-folsom-prison.jpg"],[250,"Buzzcocks","Singles Going Steady",1979,38,31,31,"250_buzzcocks_singles-going-steady.jpg"],[266,"The Beatles","Help!",1965,36,36,29,"266_the-beatles_help.jpg"],[281,"Harry Nilsson","Nilsson Schmilsson",1971,36,36,29,"281_harry-nilsson_nilsson-schmilsson.jpg"],[284,"Merle Haggard","Down Every Road 1962-1994",1996,37,33,30,"284_merle-haggard_down-every-road-1962-1994.jpg"],[397,"Billie Eilish","When We All Fall Asleep, Where Do We Go?",2019,36,36,29,"397_billie-eilish_when-we-all-fall-asleep-where-do-we-go.jpg"],[423,"Yo La Tengo","I Can Hear the Heart Beating As One",1997,38,31,31,"423_yo-la-tengo_i-can-hear-the-heart-beating-as-one.jpg"],[428,"Hüsker Dü","New Day Rising",1985,40,27,33,"428_husker-du_new-day-rising.jpg"],[491,"Harry Styles","Harry’s House",2022,38,31,31,"491_harry-styles_harrys-house.jpg"],[99,"Taylor Swift","Red",2012,25,56,19,"099_taylor-swift_red.jpg"],[122,"Nine Inch Nails","The Downward Spiral",1994,53,0,47,"122_nine-inch-nails_the-downward-spiral.jpg"],[146,"Blondie","Parallel Lines",1978,28,50,22,"146_blondie_parallel-lines.jpg"],[384,"The Kinks","The Kinks Are the Village Green Preservation Society",1969,33,40,27,"384_the-kinks_the-kinks-are-the-village-green-preserva.jpg"],[210,"Ray Charles","The Birth of Soul",1991,33,37,30,"210_ray-charles_the-birth-of-soul.jpg"],[2,"The Beach Boys","Pet Sounds",1966,33,33,33,"002_the-beach-boys_pet-sounds.jpg"],[11,"The Beatles","Revolver",1966,36,29,36,"011_the-beatles_revolver.jpg"],[19,"Kendrick Lamar","To Pimp a Butterfly",2015,31,38,31,"019_kendrick-lamar_to-pimp-a-butterfly.jpg"],[21,"Bruce Springsteen","Born to Run",1975,38,25,38,"021_bruce-springsteen_born-to-run.jpg"],[24,"The Beatles","Sgt. Pepper’s Lonely Hearts Club Band",1967,23,53,23,"024_the-beatles_sgt-peppers-lonely-hearts-club-band.jpg"],[28,"D’Angelo","Voodoo",2000,38,23,38,"028_dangelo_voodoo.jpg"],[34,"Stevie Wonder","Innervisions",1973,33,33,33,"034_stevie-wonder_innervisions.jpg"],[56,"Liz Phair","Exile in Guyville",1993,33,33,33,"056_liz-phair_exile-in-guyville.jpg"],[58,"Led Zeppelin","Led Zeppelin IV",1971,38,25,38,"058_led-zeppelin_led-zeppelin-iv.jpg"],[77,"The Who","Who’s Next",1971,33,33,33,"077_the-who_whos-next.jpg"],[78,"Elvis Presley","The Sun Sessions",1976,25,50,25,"078_elvis-presley_the-sun-sessions.jpg"],[137,"Adele","21",2011,8,83,8,"137_adele_21.jpg"],[143,"The Velvet Underground","The Velvet Underground",1969,30,40,30,"143_the-velvet-underground_the-velvet-underground.jpg"],[144,"Led Zeppelin","Physical Graffiti",1975,27,47,27,"144_led-zeppelin_physical-graffiti.jpg"],[151,"George Michael","Faith",1987,10,80,10,"151_george-michael_faith.jpg"],[153,"PJ Harvey","Rid of Me",1993,36,29,36,"153_pj-harvey_rid-of-me.jpg"],[168,"Steely Dan","Can’t Buy a Thrill",1972,40,20,40,"168_steely-dan_cant-buy-a-thrill.jpg"],[177,"Rod Stewart","Every Picture Tells a Story",1971,22,56,22,"177_rod-stewart_every-picture-tells-a-story.jpg"],[178,"Otis Redding","Otis Blue",1965,27,45,27,"178_otis-redding_otis-blue.jpg"],[191,"Etta James","At Last!",1961,20,60,20,"191_etta-james_at-last.jpg"],[206,"David Bowie","Low",1977,45,9,45,"206_david-bowie_low.jpg"],[217,"Oasis","Definitely Maybe",1994,27,45,27,"217_oasis_definitely-maybe.jpg"],[234,"Black Sabbath","Master of Reality",1971,36,27,36,"234_black-sabbath_master-of-reality.jpg"],[241,"Massive Attack","Blue Lines",1991,33,33,33,"241_massive-attack_blue-lines.jpg"],[247,"Sade","Love Deluxe",1992,33,33,33,"247_sade_love-deluxe.jpg"],[252,"Devo","Q: Are We Not Men? A: We Are Devo!",1978,45,9,45,"252_devo_q-are-we-not-men-a-we-are-devo.jpg"],[259,"Janis Joplin","Pearl",1971,30,40,30,"259_janis-joplin_pearl.jpg"],[260,"The Slits","Cut",1979,42,17,42,"260_the-slits_cut.jpg"],[269,"Kanye West","Yeezus",2013,40,20,40,"269_kanye-west_yeezus.jpg"],[306,"Al Green","I’m Still in Love With You",1972,22,56,22,"306_al-green_im-still-in-love-with-you.jpg"],[311,"Neil Young","On the Beach",1974,38,25,38,"311_neil-young_on-the-beach.jpg"],[313,"PJ Harvey","Stories From the City, Stories From the Sea",2000,15,69,15,"313_pj-harvey_stories-from-the-city-stories-from-the-s.jpg"],[319,"The Stone Roses","The Stone Roses",1989,27,45,27,"319_the-stone-roses_the-stone-roses.jpg"],[326,"Prince","Dirty Mind",1980,38,25,38,"326_prince_dirty-mind.jpg"],[333,"Bill Withers","Still Bill",1972,30,40,30,"333_bill-withers_still-bill.jpg"],[344,"Toots and the Maytals","Funky Kingston",1973,38,23,38,"344_toots-and-the-maytals_funky-kingston.jpg"],[345,"Bruce Springsteen","The Wild, the Innocent & the E Street Shuffle",1973,29,43,29,"345_bruce-springsteen_the-wild-the-innocent-the-e-street-shuff.jpg"],[350,"Stevie Wonder","Music of My Mind",1972,33,33,33,"350_stevie-wonder_music-of-my-mind.jpg"],[355,"Black Sabbath","Black Sabbath",1970,29,43,29,"355_black-sabbath_black-sabbath.jpg"],[364,"Talking Heads","More Songs About Buildings and Food",1978,45,9,45,"364_talking-heads_more-songs-about-buildings-and-food.jpg"],[373,"Isaac Hayes","Hot Buttered Soul",1969,25,50,25,"373_isaac-hayes_hot-buttered-soul.jpg"],[382,"Tame Impala","Currents",2015,15,69,15,"382_tame-impala_currents.jpg"],[388,"Aretha Franklin","Young, Gifted and Black",1972,25,50,25,"388_aretha-franklin_young-gifted-and-black.jpg"],[404,"Anita Baker","Rapture",1986,25,50,25,"404_anita-baker_rapture.jpg"],[411,"Bob Dylan","Love and Theft",2001,33,33,33,"411_bob-dylan_love-and-theft.jpg"],[424,"Beck","Odelay",1996,40,20,40,"424_beck_odelay.jpg"],[425,"Paul Simon","Paul Simon",1972,36,29,36,"425_paul-simon_paul-simon.jpg"],[434,"Pavement","Crooked Rain, Crooked Rain",1994,50,0,50,"434_pavement_crooked-rain-crooked-rain.jpg"],[440,"Loretta Lynn","Coal Miner’s Daughter",1971,27,45,27,"440_loretta-lynn_coal-miners-daughter.jpg"],[445,"Yes","Close to the Edge",1972,33,33,33,"445_yes_close-to-the-edge.jpg"],[449,"The White Stripes","Elephant",2003,21,57,21,"449_the-white-stripes_elephant.jpg"],[468,"The Rolling Stones","Some Girls",1978,40,20,40,"468_the-rolling-stones_some-girls.jpg"],[492,"Bonnie Raitt","Nick of Time",1989,18,64,18,"492_bonnie-raitt_nick-of-time.jpg"],[499,"Rufus, Chaka Khan","Ask Rufus",1977,22,56,22,"499_rufus-chaka-khan_ask-rufus.jpg"],[132,"Hank Williams","40 Greatest Hits",1978,37,23,40,"132_hank-williams_40-greatest-hits.jpg"],[367,"Drake","If You’re Reading This It’s Too Late",2015,32,32,37,"367_drake_if-youre-reading-this-its-too-late.jpg"],[459,"Kid Cudi","Man on the Moon: The End of the Day",2009,28,39,33,"459_kid-cudi_man-on-the-moon-the-end-of-the-day.jpg"],[35,"The Beatles","Rubber Soul",1965,25,44,31,"035_the-beatles_rubber-soul.jpg"],[196,"Robyn","Body Talk",2010,27,40,33,"196_robyn_body-talk.jpg"],[452,"Diana Ross and the Supremes","Anthology",1974,27,40,33,"452_diana-ross-and-the-supremes_anthology.jpg"],[81,"Beyoncé","Beyoncé",2013,29,36,36,"081_beyonce_beyonce.jpg"],[230,"Rihanna","Anti",2016,31,31,38,"230_rihanna_anti.jpg"],[295,"Daft Punk","Random Access Memories",2013,36,21,43,"295_daft-punk_random-access-memories.jpg"],[25,"Carole King","Tapestry",1971,17,58,25,"025_carole-king_tapestry.jpg"],[197,"The Beatles","Meet the Beatles!",1964,0,92,8,"197_the-beatles_meet-the-beatles.jpg"],[288,"The Modern Lovers","The Modern Lovers",1976,15,62,23,"288_the-modern-lovers_the-modern-lovers.jpg"],[298,"Tom Petty","Full Moon Fever",1989,25,42,33,"298_tom-petty_full-moon-fever.jpg"],[391,"Kelis","Kaleidoscope",1999,21,50,29,"391_kelis_kaleidoscope.jpg"],[474,"Big Star","#1 Record",1972,25,42,33,"474_big-star_1-record.jpg"],[42,"Radiohead","OK Computer",1997,33,25,42,"042_radiohead_ok-computer.jpg"],[82,"Sly and the Family Stone","There’s a Riot Goin’ On",1971,36,18,45,"082_sly-and-the-family-stone_theres-a-riot-goin-on.jpg"],[85,"John Lennon","Plastic Ono Band",1970,36,18,45,"085_john-lennon_plastic-ono-band.jpg"],[140,"Bob Marley and the Wailers","Catch a Fire",1973,18,55,27,"140_bob-marley-and-the-wailers_catch-a-fire.jpg"],[156,"The Replacements","Let It Be",1984,36,18,45,"156_the-replacements_let-it-be.jpg"],[205,"Cat Stevens","Tea for the Tillerman",1970,18,55,27,"205_cat-stevens_tea-for-the-tillerman.jpg"],[289,"Björk","Post",1995,27,36,36,"289_bjork_post.jpg"],[431,"Los Lobos","How Will the Wolf Survive?",1984,27,36,36,"431_los-lobos_how-will-the-wolf-survive.jpg"],[471,"Jefferson Airplane","Surrealistic Pillow",1967,18,55,27,"471_jefferson-airplane_surrealistic-pillow.jpg"],[480,"Miranda Lambert","The Weight of These Wings",2016,29,33,38,"480_miranda-lambert_the-weight-of-these-wings.jpg"],[59,"Stevie Wonder","Talking Book",1972,20,50,30,"059_stevie-wonder_talking-book.jpg"],[120,"Van Morrison","Moondance",1970,20,50,30,"120_van-morrison_moondance.jpg"],[223,"John Lennon","Imagine",1971,40,10,50,"223_john-lennon_imagine.jpg"],[267,"Minutemen","Double Nickels on the Dime",1984,43,3,53,"267_minutemen_double-nickels-on-the-dime.jpg"],[409,"Grateful Dead","Workingman’s Dead",1970,20,50,30,"409_grateful-dead_workingmans-dead.jpg"],[8,"Prince and the Revolution","Purple Rain",1984,33,22,44,"008_prince-and-the-revolution_purple-rain.jpg"],[12,"Michael Jackson","Thriller",1982,11,67,22,"012_michael-jackson_thriller.jpg"],[14,"The Rolling Stones","Exile on Main Street",1972,22,44,33,"014_the-rolling-stones_exile-on-main-street.jpg"],[18,"Bob Dylan","Highway 61 Revisited",1965,33,22,44,"018_bob-dylan_highway-61-revisited.jpg"],[169,"Billy Joel","The Stranger",1977,22,44,33,"169_billy-joel_the-stranger.jpg"],[287,"The Byrds","Mr. Tambourine Man",1965,22,44,33,"287_the-byrds_mr-tambourine-man.jpg"],[297,"Peter Gabriel","So",1986,33,22,44,"297_peter-gabriel_so.jpg"],[467,"Maxwell","BLACKsummers’night",2009,22,44,33,"467_maxwell_blacksummersnight.jpg"],[30,"Jimi Hendrix","Are You Experienced",1967,29,29,41,"030_jimi-hendrix_are-you-experienced.jpg"],[138,"Madonna","The Immaculate Collection",1990,12,65,24,"138_madonna_the-immaculate-collection.jpg"],[291,"Destiny’s Child","The Writing’s on the Wall",1999,19,50,31,"291_destinys-child_the-writings-on-the-wall.jpg"],[214,"Tom Petty","Wildflowers",1994,20,47,33,"214_tom-petty_wildflowers.jpg"],[303,"ABBA","The Definitive Collection",2001,20,47,33,"303_abba_the-definitive-collection.jpg"],[4,"Stevie Wonder","Songs in the Key of Life",1976,29,29,43,"004_stevie-wonder_songs-in-the-key-of-life.jpg"],[63,"Steely Dan","Aja",1977,29,29,43,"063_steely-dan_aja.jpg"],[105,"The Allman Brothers","At Fillmore East",1971,29,29,43,"105_the-allman-brothers_at-fillmore-east.jpg"],[204,"Kanye West","Graduation",2007,33,20,47,"204_kanye-west_graduation.jpg"],[274,"The Byrds","Sweetheart of the Rodeo",1968,29,29,43,"274_the-byrds_sweetheart-of-the-rodeo.jpg"],[293,"The Breeders","Last Splash",1993,33,20,47,"293_the-breeders_last-splash.jpg"],[414,"Chic","Risqué",1979,29,29,43,"414_chic_risque.jpg"],[437,"Gorillaz","Demon Days",2005,33,20,47,"437_gorillaz_demon-days.jpg"],[447,"Bad Bunny","X 100pre",2018,33,20,47,"447_bad-bunny_x-100pre.jpg"],[92,"The Jimi Hendrix Experience","Axis: Bold as Love",1967,31,23,46,"092_the-jimi-hendrix-experience_axis-bold-as-love.jpg"],[166,"Buddy Holly","20 Golden Greats",1978,20,45,35,"166_buddy-holly_20-golden-greats.jpg"],[310,"Wire","Pink Flag",1977,33,19,48,"310_wire_pink-flag.jpg"],[377,"Yeah Yeah Yeahs","Fever to Tell",2003,23,38,38,"377_yeah-yeah-yeahs_fever-to-tell.jpg"],[393,"Taylor Swift","1989",2014,14,57,29,"393_taylor-swift_1989.jpg"],[485,"Richard and Linda Thompson","I Want to See the Bright Lights Tonight",1974,31,23,46,"485_richard-and-linda-thompson_i-want-to-see-the-bright-lights-tonight.jpg"],[115,"Kendrick Lamar","good kid, m.A.A.d city",2012,38,8,54,"115_kendrick-lamar_good-kid-maad-city.jpg"],[396,"Todd Rundgren","Something/Anything?",1972,28,28,44,"396_todd-rundgren_somethinganything.jpg"],[101,"Led Zeppelin","Led Zeppelin",1969,23,37,40,"101_led-zeppelin_led-zeppelin.jpg"],[302,"Neil Young","Tonight’s the Night",1975,25,33,42,"302_neil-young_tonights-the-night.jpg"],[304,"Bill Withers","Just As I Am",1971,25,33,42,"304_bill-withers_just-as-i-am.jpg"],[395,"D’Angelo and the Vanguard","Black Messiah",2014,25,33,42,"395_dangelo-and-the-vanguard_black-messiah.jpg"],[435,"Pet Shop Boys","Actually",1987,25,33,42,"435_pet-shop-boys_actually.jpg"],[476,"Sparks","Kimono My House",1974,25,33,42,"476_sparks_kimono-my-house.jpg"],[483,"Muddy Waters","The Anthology",2001,23,37,40,"483_muddy-waters_the-anthology.jpg"],[40,"David Bowie","The Rise and Fall of Ziggy Stardust and the Spiders From Mars",1972,27,27,45,"040_david-bowie_the-rise-and-fall-of-ziggy-stardust-and-.jpg"],[167,"Depeche Mode","Violator",1990,29,24,47,"167_depeche-mode_violator.jpg"],[413,"Creedence Clearwater Revival","Cosmo’s Factory",1970,18,45,36,"413_creedence-clearwater-revival_cosmos-factory.jpg"],[10,"Lauryn Hill","The Miseducation of Lauryn Hill",1998,19,44,38,"010_lauryn-hill_the-miseducation-of-lauryn-hill.jpg"],[23,"The Velvet Underground","The Velvet Underground and Nico",1967,36,9,55,"023_the-velvet-underground_the-velvet-underground-and-nico.jpg"],[109,"Lou Reed","Transformer",1972,36,9,55,"109_lou-reed_transformer.jpg"],[48,"Bob Marley and the Wailers","Exodus",1977,20,40,40,"048_bob-marley-and-the-wailers_exodus.jpg"],[141,"Pixies","Doolittle",1989,33,13,53,"141_pixies_doolittle.jpg"],[174,"Jimmy Cliff and Various Artists","The Harder They Come: Original Soundtrack",1972,20,40,40,"174_jimmy-cliff-and-various-artists_the-harder-they-come-original-soundtrack.jpg"],[183,"D’Angelo","Brown Sugar",1995,30,20,50,"183_dangelo_brown-sugar.jpg"],[257,"Dolly Parton","Coat of Many Colors",1971,20,40,40,"257_dolly-parton_coat-of-many-colors.jpg"],[277,"Alicia Keys","The Diary of Alicia Keys",2003,13,53,33,"277_alicia-keys_the-diary-of-alicia-keys.jpg"],[283,"Donna Summer","Bad Girls",1975,13,53,33,"283_donna-summer_bad-girls.jpg"],[336,"Roxy Music","Avalon",1982,20,40,40,"336_roxy-music_avalon.jpg"],[432,"Usher","Confessions",2004,11,58,32,"432_usher_confessions.jpg"],[126,"Mary J. Blige","My Life",1994,17,44,39,"126_mary-j-blige_my-life.jpg"],[154,"Aretha Franklin","Amazing Grace",1972,7,64,29,"154_aretha-franklin_amazing-grace.jpg"],[158,"Erykah Badu","Mama’s Gun",2000,21,36,43,"158_erykah-badu_mamas-gun.jpg"],[353,"The Cars","The Cars",1978,22,33,44,"353_the-cars_the-cars.jpg"],[366,"Aerosmith","Rocks",1976,22,33,44,"366_aerosmith_rocks.jpg"],[368,"George Harrison","All Things Must Pass",1970,13,52,35,"368_george-harrison_all-things-must-pass.jpg"],[405,"Various","Nuggets: Original Artyfacts from the First Psychedelic Era",1972,15,48,37,"405_various_nuggets-original-artyfacts-from-the-firs.jpg"],[427,"Al Green","Call Me",1973,11,56,33,"427_al-green_call-me.jpg"],[464,"The Isley Brothers","3 + 3",1973,11,56,33,"464_the-isley-brothers_3-3.jpg"],[495,"Boyz II Men","II",1991,21,36,43,"495_boyz-ii-men_ii.jpg"],[270,"Kacey Musgraves","Golden Hour",2018,23,31,46,"270_kacey-musgraves_golden-hour.jpg"],[112,"Elton John","Goodbye Yellow Brick Road",1973,29,18,53,"112_elton-john_goodbye-yellow-brick-road.jpg"],[325,"Jerry Lee Lewis","All Killer No Filler!",1993,14,48,38,"325_jerry-lee-lewis_all-killer-no-filler.jpg"],[96,"R.E.M.","Automatic for the People",1992,25,25,50,"096_rem_automatic-for-the-people.jpg"],[128,"Queen","A Night at the Opera",1975,25,25,50,"128_queen_a-night-at-the-opera.jpg"],[159,"The Police","Synchronicity",1983,25,25,50,"159_the-police_synchronicity.jpg"],[171,"Sonic Youth","Daydream Nation",1988,33,8,58,"171_sonic-youth_daydream-nation.jpg"],[275,"Curtis Mayfield","Curtis",1970,13,50,38,"275_curtis-mayfield_curtis.jpg"],[394,"Diana Ross","Diana",1980,25,25,50,"394_diana-ross_diana.jpg"],[401,"Blondie","Blondie",1977,19,38,44,"401_blondie_blondie.jpg"],[412,"Smokey Robinson and the Miracles","Going to a Go Go",1965,17,42,42,"412_smokey-robinson-and-the-miracles_going-to-a-go-go.jpg"],[422,"Marvin Gaye","Let’s Get It On",1973,25,25,50,"422_marvin-gaye_lets-get-it-on.jpg"],[451,"Roberta Flack","First Take",1969,13,50,38,"451_roberta-flack_first-take.jpg"],[455,"Bo Diddley","Bo Diddley/Go Bo Diddley",1958,25,25,50,"455_bo-diddley_bo-diddleygo-bo-diddley.jpg"],[314,"Aaliyah","One in a Million",1996,16,42,42,"314_aaliyah_one-in-a-million.jpg"],[392,"Ike and Tina Turner","Proud Mary: The Best of Ike and Tina Turner",1991,26,22,52,"392_ike-and-tina-turner_proud-mary-the-best-of-ike-and-tina-turn.jpg"],[489,"Phil Spector and Various Artists","Back to Mono (1958-1969)",1991,15,44,41,"489_phil-spector-and-various-artists_back-to-mono-1958-1969.jpg"],[65,"James Brown","Live at the Apollo",1963,18,36,45,"065_james-brown_live-at-the-apollo.jpg"],[357,"Tom Waits","Rain Dogs",1985,26,21,53,"357_tom-waits_rain-dogs.jpg"],[371,"The Temptations","Anthology",1973,20,33,47,"371_the-temptations_anthology.jpg"],[421,"M.I.A.","Arular",2005,20,33,47,"421_mia_arular.jpg"],[46,"Paul Simon","Graceland",1986,27,18,55,"046_paul-simon_graceland.jpg"],[102,"The Clash","The Clash",1977,29,14,57,"102_the-clash_the-clash.jpg"],[130,"Prince","1999",1982,36,0,64,"130_prince_1999.jpg"],[385,"Ramones","Rocket to Russia",1977,29,14,57,"385_ramones_rocket-to-russia.jpg"],[17,"Kanye West","My Beautiful Dark Twisted Fantasy",2010,21,29,50,"017_kanye-west_my-beautiful-dark-twisted-fantasy.jpg"],[89,"Erykah Badu","Baduizm",1997,21,29,50,"089_erykah-badu_baduizm.jpg"],[316,"The Who","The Who Sell Out",1967,21,29,50,"316_the-who_the-who-sell-out.jpg"],[111,"Janet Jackson","Control",1986,10,50,40,"111_janet-jackson_control.jpg"],[136,"Funkadelic","Maggot Brain",1971,20,30,50,"136_funkadelic_maggot-brain.jpg"],[207,"Eagles","Eagles",1972,10,50,40,"207_eagles_eagles.jpg"],[323,"The Clash","Sandinista!",1980,23,23,53,"323_the-clash_sandinista.jpg"],[332,"Elvis Presley","Elvis Presley",1956,13,43,43,"332_elvis-presley_elvis-presley.jpg"],[255,"Bob Dylan","The Freewheelin’ Bob Dylan",1963,15,38,46,"255_bob-dylan_the-freewheelin-bob-dylan.jpg"],[263,"The Beatles","Hard Day’s Night",1964,0,69,31,"263_the-beatles_hard-days-night.jpg"],[268,"Randy Newman","Sail Away",1972,23,23,54,"268_randy-newman_sail-away.jpg"],[305,"Kiss","Alive!",1975,19,31,50,"305_kiss_alive.jpg"],[430,"Bad Bunny","Un Verano Sin Ti",2022,26,17,57,"430_bad-bunny_un-verano-sin-ti.jpg"],[475,"Sheryl Crow","Sheryl Crow",1996,23,23,54,"475_sheryl-crow_sheryl-crow.jpg"],[95,"Drake","Take Care",2011,23,23,55,"095_drake_take-care.jpg"],[57,"The Band","The Band",1969,17,33,50,"057_the-band_the-band.jpg"],[76,"Curtis Mayfield","Superfly",1972,11,44,44,"076_curtis-mayfield_superfly.jpg"],[161,"Crosby, Stills & Nash","Crosby, Stills & Nash",1969,17,33,50,"161_crosby-stills-nash_crosby-stills-nash.jpg"],[240,"Sam Cooke","Live at the Harlem Square Club, 1963",1985,11,44,44,"240_sam-cooke_live-at-the-harlem-square-club-1963.jpg"],[312,"Solange","A Seat at the Table",2016,19,29,52,"312_solange_a-seat-at-the-table.jpg"],[41,"The Rolling Stones","Let It Bleed",1969,22,22,56,"041_the-rolling-stones_let-it-bleed.jpg"],[271,"Mary J. Blige","What’s the 411?",1992,8,50,42,"271_mary-j-blige_whats-the-411.jpg"],[450,"Paul and Linda McCartney","Ram",1971,8,50,42,"450_paul-and-linda-mccartney_ram.jpg"],[466,"Black Uhuru","Red",1981,22,22,56,"466_black-uhuru_red.jpg"],[16,"The Clash","London Calling",1979,15,35,50,"016_the-clash_london-calling.jpg"],[338,"Brian Eno","Another Green World",1975,29,7,64,"338_brian-eno_another-green-world.jpg"],[155,"Jay-Z","The Black Album",2003,14,36,50,"155_jay-z_the-black-album.jpg"],[342,"The Beatles","Let It Be",1970,14,36,50,"342_the-beatles_let-it-be.jpg"],[399,"Brian Wilson","Smile",2004,29,6,65,"399_brian-wilson_smile.jpg"],[22,"The Notorious B.I.G.","Ready to Die",1994,21,21,58,"022_the-notorious-big_ready-to-die.jpg"],[54,"James Brown","Star Time",1991,10,43,47,"054_james-brown_star-time.jpg"],[253,"Pink Floyd","The Piper at the Gates of Dawn",1967,27,9,64,"253_pink-floyd_the-piper-at-the-gates-of-dawn.jpg"],[438,"Blur","Parklife",1994,25,13,63,"438_blur_parklife.jpg"],[237,"Willie Nelson","Red Headed Stranger",1975,20,20,60,"237_willie-nelson_red-headed-stranger.jpg"],[242,"The Velvet Underground","Loaded",1970,10,40,50,"242_the-velvet-underground_loaded.jpg"],[251,"Elton John","Honky Château",1972,10,40,50,"251_elton-john_honky-chateau.jpg"],[352,"Eminem","The Slim Shady LP",1999,25,10,65,"352_eminem_the-slim-shady-lp.jpg"],[498,"Suicide","Suicide",1977,20,20,60,"498_suicide_suicide.jpg"],[5,"The Beatles","Abbey Road",1969,12,35,53,"005_the-beatles_abbey-road.jpg"],[134,"Fugees","The Score",1996,24,12,65,"134_fugees_the-score.jpg"],[337,"Bob Dylan","John Wesley Harding",1967,17,25,58,"337_bob-dylan_john-wesley-harding.jpg"],[441,"Britney Spears","Blackout",2007,17,25,58,"441_britney-spears_blackout.jpg"],[354,"X-Ray Spex","Germfree Adolescents",1978,25,8,67,"354_x-ray-spex_germfree-adolescents.jpg"],[379,"Rush","Moving Pictures",1981,29,0,71,"379_rush_moving-pictures.jpg"],[45,"Prince","Sign O’ the Times",1987,13,31,56,"045_prince_sign-o-the-times.jpg"],[74,"Kanye West","The College Dropout",2004,19,19,62,"074_kanye-west_the-college-dropout.jpg"],[117,"Kanye West","Late Registration",2005,14,29,57,"117_kanye-west_late-registration.jpg"],[15,"Public Enemy","It Takes a Nation of Millions to Hold Us Back",1988,0,56,44,"015_public-enemy_it-takes-a-nation-of-millions-to-hold-us.jpg"],[71,"Beyonce","Renaissance",2022,19,19,63,"071_beyonce_renaissance.jpg"],[123,"Led Zeppelin","Led Zeppelin II",1969,0,56,44,"123_led-zeppelin_led-zeppelin-ii.jpg"],[318,"Janet Jackson","The Velvet Rope",1997,17,22,61,"318_janet-jackson_the-velvet-rope.jpg"],[176,"Public Enemy","Fear of a Black Planet",1990,15,25,60,"176_public-enemy_fear-of-a-black-planet.jpg"],[194,"Michael Jackson","Bad",1987,0,55,45,"194_michael-jackson_bad.jpg"],[198,"The B-52’s","The B-52’s",1979,11,33,56,"198_the-b-52s_the-b-52s.jpg"],[200,"Sade","Diamond Life",1984,11,33,56,"200_sade_diamond-life.jpg"],[55,"Pink Floyd","The Dark Side of the Moon",1973,27,0,73,"055_pink-floyd_the-dark-side-of-the-moon.jpg"],[64,"OutKast","Stankonia",2000,17,21,63,"064_outkast_stankonia.jpg"],[29,"The Beatles","White Album",1968,13,27,60,"029_the-beatles_white-album.jpg"],[186,"Red Hot Chili Peppers","Blood Sugar Sex Magik",1991,24,6,71,"186_red-hot-chili-peppers_blood-sugar-sex-magik.jpg"],[36,"Michael Jackson","Off the Wall",1979,20,10,70,"036_michael-jackson_off-the-wall.jpg"],[47,"Ramones","Ramones",1976,14,21,64,"047_ramones_ramones.jpg"],[185,"The Rolling Stones","Beggars Banquet",1968,10,30,60,"185_the-rolling-stones_beggars-banquet.jpg"],[190,"The Who","Tommy",1969,13,25,63,"190_the-who_tommy.jpg"],[218,"TLC","CrazySexyCool",1994,19,13,69,"218_tlc_crazysexycool.jpg"],[307,"Sam Cooke","Portrait of a Legend",2003,10,30,60,"307_sam-cooke_portrait-of-a-legend.jpg"],[330,"Burna Boy","African Giant",2019,20,10,70,"330_burna-boy_african-giant.jpg"],[335,"Bob Dylan and the Band","The Basement Tapes",1975,8,33,58,"335_bob-dylan-and-the-band_the-basement-tapes.jpg"],[370,"Lil Wayne","Tha Carter II",2005,18,14,68,"370_lil-wayne_tha-carter-ii.jpg"],[381,"Lynyrd Skynyrd","(Pronounced ‘Lĕh-‘nérd ‘Skin-‘nérd)",1973,0,50,50,"381_lynyrd-skynyrd_pronounced-leh-nerd-skin-nerd.jpg"],[436,"2Pac","All Eyez on Me",1996,11,26,63,"436_2pac_all-eyez-on-me.jpg"],[473,"Daddy Yankee","Barrio Fino",2004,19,10,71,"473_daddy-yankee_barrio-fino.jpg"],[163,"Various Artists","Saturday Night Fever",1977,12,24,65,"163_various-artists_saturday-night-fever.jpg"],[439,"James Brown","Sex Machine",1970,20,7,73,"439_james-brown_sex-machine.jpg"],[51,"Chuck Berry","The Great Twenty-Eight",1982,7,32,61,"051_chuck-berry_the-great-twenty-eight.jpg"],[227,"Little Richard","Here’s Little Richard",1957,8,31,62,"227_little-richard_heres-little-richard.jpg"],[236,"Daft Punk","Discovery",2001,13,20,67,"236_daft-punk_discovery.jpg"],[286,"Red Hot Chili Peppers","Californication",1999,13,20,67,"286_red-hot-chili-peppers_californication.jpg"],[145,"Eminem","The Marshall Mathers LP",2000,17,11,72,"145_eminem_the-marshall-mathers-lp.jpg"],[292,"Van Halen","Van Halen",1978,18,9,73,"292_van-halen_van-halen.jpg"],[208,"Lil Wayne","Tha Carter III",2008,13,19,69,"208_lil-wayne_tha-carter-iii.jpg"],[219,"Raekwon","Only Built 4 Cuban Linx",1995,11,22,67,"219_raekwon_only-built-4-cuban-linx.jpg"],[238,"Kraftwerk","Trans Europe Express",1977,22,0,78,"238_kraftwerk_trans-europe-express.jpg"],[329,"DJ Shadow","Endtroducing…..",1996,19,6,75,"329_dj-shadow_endtroducing.jpg"],[94,"The Stooges","Fun House",1970,14,14,71,"094_the-stooges_fun-house.jpg"],[290,"OutKast","Speakerboxxx/The Love Below",2003,10,23,67,"290_outkast_speakerboxxxthe-love-below.jpg"],[362,"Luther Vandross","Never Too Much",1981,14,14,71,"362_luther-vandross_never-too-much.jpg"],[386,"J Dilla","Donuts",2006,13,17,70,"386_j-dilla_donuts.jpg"],[27,"Wu-Tang Clan","Enter the Wu-Tang(36 Chambers)",1993,17,8,75,"027_wu-tang-clan_enter-the-wu-tang36-chambers.jpg"],[261,"Beastie Boys","Check Your Head",1992,13,17,71,"261_beastie-boys_check-your-head.jpg"],[62,"Guns N’ Roses","Appetite for Destruction",1987,8,25,67,"062_guns-n-roses_appetite-for-destruction.jpg"],[50,"Jay-Z","The Blueprint",2001,20,0,80,"050_jay-z_the-blueprint.jpg"],[61,"Eric B. and Rakim","Paid in Full",1987,10,20,70,"061_eric-b-and-rakim_paid-in-full.jpg"],[67,"Jay-Z","Reasonable Doubt",1996,13,13,73,"067_jay-z_reasonable-doubt.jpg"],[184,"Cyndi Lauper","She’s So Unusual",1983,10,20,70,"184_cyndi-lauper_shes-so-unusual.jpg"],[470,"Juvenile","400 Degreez",1998,10,20,70,"470_juvenile_400-degreez.jpg"],[97,"Metallica","Master of Puppets",1986,13,13,75,"097_metallica_master-of-puppets.jpg"],[278,"Led Zeppelin","Houses of the Holy",1973,13,13,75,"278_led-zeppelin_houses-of-the-holy.jpg"],[349,"MC5","Kick Out the Jams",1969,13,13,75,"349_mc5_kick-out-the-jams.jpg"],[363,"Parliament","Mothership Connection",1975,13,13,75,"363_parliament_mothership-connection.jpg"],[482,"The Pharcyde","Bizarre Ride II the Pharcyde",1992,13,13,75,"482_the-pharcyde_bizarre-ride-ii-the-pharcyde.jpg"],[53,"Jimi Hendrix","Electric Ladyland",1968,6,25,69,"053_jimi-hendrix_electric-ladyland.jpg"],[300,"Shania Twain","Come on Over",1997,0,38,63,"300_shania-twain_come-on-over.jpg"],[280,"50 Cent","Get Rich or Die Tryin",2002,9,18,73,"280_50-cent_get-rich-or-die-tryin.jpg"],[327,"The Who","Live at Leeds",1970,7,21,71,"327_the-who_live-at-leeds.jpg"],[408,"Motörhead","Ace of Spades",1980,9,18,73,"408_motorhead_ace-of-spades.jpg"],[246,"LL Cool J","Mama Said Knock You Out",1991,14,7,79,"246_ll-cool-j_mama-said-knock-you-out.jpg"],[403,"Ghostface Killah","Supreme Clientele",2000,10,14,76,"403_ghostface-killah_supreme-clientele.jpg"],[334,"Santana","Abraxas",1970,11,11,78,"334_santana_abraxas.jpg"],[360,"Funkadelic","One Nation Under a Groove",1978,11,11,78,"360_funkadelic_one-nation-under-a-groove.jpg"],[93,"Missy “Misdemeanor” Elliott","Supa Dupa Fly",1997,6,18,76,"093_missy-misdemeanor-elliott_supa-dupa-fly.jpg"],[179,"Notorious B.I.G.","Life After Death",1997,13,4,83,"179_notorious-big_life-after-death.jpg"],[193,"Creedence Clearwater Revival","Willy and the Poor Boys",1969,10,10,80,"193_creedence-clearwater-revival_willy-and-the-poor-boys.jpg"],[339,"Janet Jackson","Rhythm Nation 1814",1989,0,30,70,"339_janet-jackson_rhythm-nation-1814.jpg"],[347,"GZA","Liquid Swords",1995,15,0,85,"347_gza_liquid-swords.jpg"],[201,"A Tribe Called Quest","Midnight Marauders",1993,14,0,86,"201_a-tribe-called-quest_midnight-marauders.jpg"],[80,"The Sex Pistols","Never Mind the Bollocks Here’s the Sex Pistols",1977,8,8,83,"080_the-sex-pistols_never-mind-the-bollocks-heres-the-sex-pi.jpg"],[119,"Sly and the Family Stone","Stand!",1969,0,25,75,"119_sly-and-the-family-stone_stand.jpg"],[139,"Black Sabbath","Paranoid",1970,13,0,88,"139_black-sabbath_paranoid.jpg"],[187,"Ice Cube","AmeriKKKa’s Most Wanted",1990,6,13,81,"187_ice-cube_amerikkkas-most-wanted.jpg"],[235,"Metallica","Metallica (The Black Album)",1991,0,25,75,"235_metallica_metallica-the-black-album.jpg"],[343,"Sly and the Family Stone","Greatest Hits",1970,0,25,75,"343_sly-and-the-family-stone_greatest-hits.jpg"],[420,"Earth, Wind and Fire","That’s the Way of the World",1975,8,8,83,"420_earth-wind-and-fire_thats-the-way-of-the-world.jpg"],[497,"Various Artists","The Indestructible Beat of Soweto",1985,8,8,83,"497_various-artists_the-indestructible-beat-of-soweto.jpg"],[416,"The Roots","Things Fall Apart",1999,6,11,83,"416_the-roots_things-fall-apart.jpg"],[378,"Run-DMC","Run-D.M.C.",1983,5,11,84,"378_run-dmc_run-dmc.jpg"],[221,"Rage Against the Machine","Rage Against the Machine",1992,9,0,91,"221_rage-against-the-machine_rage-against-the-machine.jpg"],[365,"Madvillain","Madvillainy",2004,9,0,91,"365_madvillain_madvillainy.jpg"],[410,"The Beach Boys","Wild Honey",1967,0,18,82,"410_the-beach-boys_wild-honey.jpg"],[43,"A Tribe Called Quest","The Low End Theory",1991,7,0,93,"043_a-tribe-called-quest_the-low-end-theory.jpg"],[49,"OutKast","Aquemini",1998,0,13,88,"049_outkast_aquemini.jpg"],[228,"De La Soul","De La Soul Is Dead",1991,4,4,93,"228_de-la-soul_de-la-soul-is-dead.jpg"],[84,"AC/DC","Back in Black",1980,0,10,90,"084_acdc_back-in-black.jpg"],[103,"De La Soul","Three Feet High And Rising",1989,4,0,96,"103_de-la-soul_three-feet-high-and-rising.jpg"],[125,"Beastie Boys","Paul’s Boutique",1989,4,0,96,"125_beastie-boys_pauls-boutique.jpg"],[192,"Beastie Boys","Licensed to Ill",1986,0,8,92,"192_beastie-boys_licensed-to-ill.jpg"],[340,"Snoop Doggy Dogg","Doggystyle",1993,0,5,95,"340_snoop-doggy-dogg_doggystyle.jpg"],[37,"Dr. Dre","The Chronic",1992,0,0,100,"037_dr-dre_the-chronic.jpg"],[66,"John Coltrane","A Love Supreme",1965,0,0,100,"066_john-coltrane_a-love-supreme.jpg"],[70,"N.W.A","Straight Outta Compton",1988,0,0,100,"070_nwa_straight-outta-compton.jpg"],[209,"Run-DMC","Raising Hell",1986,0,0,100,"209_run-dmc_raising-hell.jpg"],[239,"Boogie Down Productions","Criminal Minded",1987,0,0,100,"239_boogie-down-productions_criminal-minded.jpg"],[356,"Dr. John","Gris-Gris",1968,0,0,100,"356_dr-john_gris-gris.jpg"],[402,"Fela Kuti and Africa 70","Expensive Shit",1975,0,0,100,"402_fela-kuti-and-africa-70_expensive-shit.jpg"]];
 
 const MARKS = [
-  { y: 1964, key: "a", kind: "Peak", pct: "79% Arriving", hue: "#ffd23f",
+  { y: 1964, key: "a", kind: "Peak", pct: "79% Escaping", hue: "#ffd23f",
     body: "Beatlemania at its peak — Meet the Beatles!, A Hard Day's Night, five straight Supremes number ones. Nearly four in five songs reach for something: hold my hand, let me be your man. Almost all of it is addressed to a \"you.\"" },
-  { y: 1976, key: "a", kind: "Peak", pct: "38% Arriving", hue: "#ffd23f",
+  { y: 1976, key: "a", kind: "Peak", pct: "38% Escaping", hue: "#ffd23f",
     body: "Punk's first shots, disco going mainstream. Songs in the Key of Life, Station to Station, and the Ramones' debut all push toward something — the last surge of forward motion before post-punk." },
   { y: 1987, key: "d", kind: "Trough", pct: "13% Dwelling", hue: "#ff2fd6",
     body: "Peak MTV, peak gloss. The dwelling low of the dataset — barely one song in eight sits in a feeling. Bad, Sign 'O' the Times, The Joshua Tree, and Appetite for Destruction dominate, and none of them stay still." },
@@ -685,6 +670,7 @@ const ERAS = [
     body: "Storytelling as a mode fell from 45% to 30% across four decades. We stopped consuming other people's stories." }
 ];
 
+const CORPUS_RUN = ">>> Classify all 7,000 song lyrics in the 100 greatest albums by these three categories";
 const CORPUS_PRE = 'SYSTEM = """You are a lyrics classifier. For each song output EXACTLY one entry, in order. Category definitions:';
 
 const DECADES = [
@@ -694,13 +680,13 @@ const DECADES = [
 ];
 
 const SONGS = [
-  { rank:33, src:"covers/033.png", title:"Rehab", credit:"Amy Winehouse · Back to Black · 2006", truth:"ARRIVING", conf:"high",
+  { rank:33, src:"covers/033.png", title:"Rehab", credit:"Amy Winehouse · Back to Black · 2006", truth:"ESCAPING", conf:"high",
     why:"Defiance positioned as a gap to close — she will prove her worth when she returns. The logic is conditional and future-oriented: handle it on her own terms, then be vindicated." },
   { rank:30, src:"covers/030.png", title:"Foxey Lady", credit:"Jimi Hendrix · Are You Experienced · 1967", truth:"NARRATING", conf:"high",
     why:"A celebratory pursuit song — confident desire, no unresolved pain. Playful celebration rather than dwelling in difficulty or striving to escape something." },
   { rank:32, src:"covers/032.png", title:"Don't Hurt Yourself", credit:"Beyoncé · Lemonade · 2016", truth:"DWELLING", conf:"medium",
     why:"She asserts strength — I'm not broken, I'm not crying — but the logic underneath is unresolved. The title sounds like a destination; it's actually a statement of damage already done. She ends where she began. The classifier logged medium confidence here, and reasonable people split." },
-  { rank:33, src:"covers/033.png", title:"Tears Dry on Their Own", credit:"Amy Winehouse · Back to Black · 2006", truth:"ARRIVING", conf:"high",
+  { rank:33, src:"covers/033.png", title:"Tears Dry on Their Own", credit:"Amy Winehouse · Back to Black · 2006", truth:"ESCAPING", conf:"high",
     why:"I'm grown; my tears dry on their own. The chorus charts a transition — he walks away, she stays and establishes a boundary. The destination is autonomy, even if bittersweet." }
 ];
 
@@ -725,6 +711,37 @@ const AMB_TRACKS = [
   { f: "uploads/Seeds.mp3", t: "Seeds", a: "Bennett Coast" },
   { f: "uploads/Fleetwood Mac - Dreams (Official Audio).mp3", t: "Dreams", a: "Fleetwood Mac" }
 ];
+/* ============================ PACING ============================
+   The single source of truth for scroll rhythm. One row per screen,
+   in the order they appear in the markup.
+
+     fly  = screens of scroll spent travelling INTO this screen
+     hold = screens of scroll this screen stays pinned and readable
+
+   1 screen = one viewport height, so the rhythm feels identical on a
+   laptop and a 4K display. Camera DEPTH is separate (data-z in the
+   markup) — changing fly only changes how long the trip takes, never
+   where it lands. Raise fly if something whips past; raise hold if
+   there isn't time to read.
+
+   Turn on Tweaks -> Pacing -> "Pacing HUD" to see these numbers live
+   while you scroll (the current screen lights up; click a row to jump).
+   Sliders in that panel override this table for the session — once a
+   value feels right, type it in here to make it permanent.
+   ================================================================ */
+const PACING = [
+  { label: "Title card",                key: "Title",    fly: 0.0,  hold: 0.5 },
+  { label: "State of affairs",          key: "State",    fly: 0.8,  hold: 4.6 },
+  { label: "Corpus and classification", key: "Corpus",   fly: 0.6,  hold: 15.0 },
+  { label: "Dwellers vs escapers",      key: "Duo",      fly: 4.5,  hold: 2.4 },
+  { label: "Spectrum",                  key: "Spectrum", fly: 1.1,  hold: 5.8 },
+  { label: "Contribute",                key: "Radio",    fly: 2.3,  hold: 4.0 },
+  { label: "Method",                    key: "Method",   fly: 2.8,  hold: 0.5 },
+  { label: "Archive closer",            key: "Archive",  fly: 1.5,  hold: 2.2 }
+];
+const PACING_BY_LABEL = {};
+const PACE_KEYS = {};
+PACING.forEach(p => { PACING_BY_LABEL[p.label] = p; PACE_KEYS[p.label] = p.key; });
 const ASK_LINE = "What's your go-to song to dwell in it?";
 const SPIN_RANKS = [1, 12, 24, 37, 55, 68, 81, 96, 110, 133, 157, 178, 199, 221, 244, 268, 291, 315, 340, 366, 392, 417, 443, 470];
 const SEED_SONGS = [
@@ -737,12 +754,12 @@ const SEED_SONGS = [
   { t: "Driver", a: "Bennett Coast", n: "", ts: 1740000007000 },
   { t: "Dreams", a: "Fleetwood Mac", n: "", ts: 1740000008000 }
 ];
-const CATS = ["DWELLING","ARRIVING","NARRATING"];
+const CATS = ["DWELLING","ESCAPING","NARRATING"];
 const HUES = ["#e84a5f","#f2c14e","#12c2b0","#7ad9a5","#c77dff","#ff8f4a"];
 const rnd = (i, s) => { const h = Math.sin((i + 1) * (12.9898 + s)) * 43758.5453; return h - Math.floor(h); };
 const pad = r => String(r).padStart(3, "0");
 const decOf = y => Math.floor(y / 10) * 10 + "s";
-const domOf = a => a[4] >= a[5] && a[4] >= a[6] ? "DWELLING" : a[5] >= a[6] ? "ARRIVING" : "NARRATING";
+const domOf = a => a[4] >= a[5] && a[4] >= a[6] ? "DWELLING" : a[5] >= a[6] ? "ESCAPING" : "NARRATING";
 
 const Z_START = 13000, Z_END = 49000;
 
@@ -762,10 +779,10 @@ const DUO = [
   ["The Raincoats","The Raincoats",1979,398,"d","73% Dwelling · Post-Punk","Post-punk detachment as a full-length statement. Time doesn't move, love is a question, and no one is answering."],
   ["Can","Ege Bamyasi",1972,454,"d","71% Dwelling · Krautrock","The refrain is \"all alone.\" The speaker isn't trying to leave that state — he's trying to describe what it feels like to be inside it."],
   ["Bon Iver","For Emma, Forever Ago",2008,461,"d","100% Dwelling · Folk","The purest dwelling album in the canon. Recorded alone in a Wisconsin cabin after a breakup — and every song stays inside the wound."],
-  ["Adele","21",2011,137,"a","83% Arriving · Pop","Even the heartbreak has a plan. Every song is aimed somewhere — revenge, reunion, or the door."],
-  ["George Michael","Faith",1987,151,"a","80% Arriving · Pop","Persuasion as structure. The whole album is asking, promising, or negotiating — \"one more try,\" \"what will it take?\""],
-  ["The Beatles","Meet the Beatles!",1964,197,"a","92% Arriving · Rock","The debut that made them famous is entirely addressed to a \"you.\" Hold my hand, let me be your man, it won't be long."],
-  ["The Ronettes","Presenting the Fabulous Ronettes",1964,494,"a","75% Arriving · R&B/Soul","Girl-group yearning as an entire aesthetic. Every song is dreaming of a future meeting that hasn't happened yet."]
+  ["Adele","21",2011,137,"a","83% Escaping · Pop","Even the heartbreak has a plan. Every song is aimed somewhere — revenge, reunion, or the door."],
+  ["George Michael","Faith",1987,151,"a","80% Escaping · Pop","Persuasion as structure. The whole album is asking, promising, or negotiating — \"one more try,\" \"what will it take?\""],
+  ["The Beatles","Meet the Beatles!",1964,197,"a","92% Escaping · Rock","The debut that made them famous is entirely addressed to a \"you.\" Hold my hand, let me be your man, it won't be long."],
+  ["The Ronettes","Presenting the Fabulous Ronettes",1964,494,"a","75% Escaping · R&B/Soul","Girl-group yearning as an entire aesthetic. Every song is dreaming of a future meeting that hasn't happened yet."]
 ];
 
 
@@ -1015,17 +1032,21 @@ class Component extends DCLogic {
   }
 
   // --- ambient bed: each card arrival brings up another preview, reshuffled per page load ---
-  ambAudio() {
-    if (!window.__dmhAmb) { window.__dmhAmb = new Audio(); window.__dmhAmb.volume = 0.38; }
-    this._amb = window.__dmhAmb;
-    return this._amb;
+  sharedAudio() {
+    if (!window.__dmhAudio) window.__dmhAudio = new Audio();
+    return window.__dmhAudio;
   }
 
-  // only one source may sound at a time
+  ambAudio() {
+    const a = this.sharedAudio();
+    a.volume = 0.38;
+    this._amb = a;
+    return a;
+  }
+
   soloAudio(keep) {
-    [window.__dmhAmb, window.__dmhCue].forEach(a => {
-      if (a && a !== keep) { try { a.pause(); } catch (e) {} }
-    });
+    const a = window.__dmhAudio;
+    if (a && a !== keep) { try { a.pause(); } catch (e) {} }
   }
 
   // one full track carries the whole read; a fresh start picks a different one
@@ -1039,9 +1060,10 @@ class Component extends DCLogic {
     if (step) this._ambI = (this._ambI + step + AMB_TRACKS.length) % AMB_TRACKS.length;
     const tr = AMB_TRACKS[this._ambI];
     const a = this.ambAudio();
-    this.soloAudio(a);
+    const same = a.src.indexOf(encodeURI(tr.f)) >= 0;
+    if (same && !a.paused) { this._ambNow = tr; return; }
     a.onended = () => this.ambPlay(1);
-    if (a.src.indexOf(encodeURI(tr.f)) < 0) { a.src = tr.f; a.currentTime = 0; }
+    if (!same) { a.src = tr.f; a.currentTime = 0; }
     a.play().catch(() => {});
     this._ambNow = tr;
   }
@@ -1053,9 +1075,10 @@ class Component extends DCLogic {
 
   // --- radio transport: play every preview in order, hover on a row takes over ---
   radioAudio() {
-    if (!window.__dmhCue) { window.__dmhCue = new Audio(); window.__dmhCue.volume = 0.55; }
-    this._audio = window.__dmhCue;
-    return this._audio;
+    const a = this.sharedAudio();
+    a.volume = 0.55;
+    this._audio = a;
+    return a;
   }
 
   radioTrack(i) {
@@ -1123,6 +1146,12 @@ class Component extends DCLogic {
   }
 
   componentDidMount() {
+    window.__dmh = this;
+    this.promoteImgs();
+    clearInterval(this._tick);
+    this._tick = setInterval(() => {
+      if (performance.now() - (this._lastTick || 0) > 260) this.stepScroll(0.5);
+    }, 120);
     this.ensureEngine();
     this.onResize = () => { this.measure(); this.sizeSpark(); if (this.buildType) this.buildType(); };
     window.addEventListener("resize", this.onResize);
@@ -1187,11 +1216,12 @@ class Component extends DCLogic {
 
   componentDidUpdate() {
     this.theme();
-    const sig = [this.p("flySpeed",1), this.p("holdScale",1), this.p("coverSize",300), this.p("spreadX",760), this.p("spreadY",440), this.p("starCount",14), this.p("starSize",130), this.p("ringTile",78), this.p("ringRadius",480), this.p("ringGap",22), this.p("heroGrid",26), this.p("subGrid",8.6), this.p("titleFamily","Cormorant Garamond"), this.p("titleWeight",400), this.p("titleItalic",true), this.p("titleSlant",0), this.p("titleTracking",0), this.p("titleSize",4.2), this.p("titleLineHeight",0.96), this.p("titleJustify",1.15), this.p("inkThreshold",120), this.p("halftoneCols",35), this.p("halftoneDot",12), this.p("halftoneGap",5), this.p("tileSize",86)].join(",");
+    const sig = [Object.keys(PACE_KEYS).map(k => PACE_KEYS[k]).map(k => String(this.p("fly" + k, "")) + "/" + String(this.p("hold" + k, ""))).join("|"), this.p("flySpeed",1), this.p("holdScale",1), this.p("coverSize",300), this.p("spreadX",760), this.p("spreadY",440), this.p("starCount",14), this.p("starSize",130), this.p("ringTile",78), this.p("ringRadius",480), this.p("ringGap",22), this.p("heroGrid",26), this.p("subGrid",8.6), this.p("titleFamily","Cormorant Garamond"), this.p("titleWeight",400), this.p("titleItalic",true), this.p("titleSlant",0), this.p("titleTracking",0), this.p("titleSize",4.2), this.p("titleLineHeight",0.96), this.p("titleJustify",1.15), this.p("inkThreshold",120), this.p("halftoneCols",35), this.p("halftoneDot",12), this.p("halftoneGap",5), this.p("tileSize",86)].join(",");
     if (sig !== this._sig) { this._sig = sig; clearTimeout(this._re); this._re = setTimeout(this.measure, 80); }
     if (this.buildType) { clearTimeout(this._bt); this._bt = setTimeout(this.buildType, 120); }
   }
   componentWillUnmount() {
+    clearInterval(this._tick);
     this.soloAudio(null);
     this.lockScroll(false);
     clearTimeout(this._cueT);
@@ -1212,19 +1242,28 @@ class Component extends DCLogic {
     const spacer = document.querySelector("[data-spacer]");
     const ovs = Array.from(document.querySelectorAll("[data-ov]"));
     if (!spacer || !ovs.length) return;
-    const rate = this.p("flySpeed", 1);
-    const perUnit = 0.28 / Math.max(rate, 0.15);
-    this.perUnit = perUnit;
-    const holdScale = this.p("holdScale", 1);
-    let t = 0, prevZ = 0;
+    const fly = Math.max(0.2, this.p("flySpeed", 1));
+    const holdScale = Math.max(0, this.p("holdScale", 1));
+    const vh = Math.max(420, window.innerHeight);
+    this.perUnit = 0.28 / fly;
+    let t = 0;
     this.tl = ovs.map(el => {
+      const label = el.getAttribute("data-screen-label") || "";
+      const cfg = PACING_BY_LABEL[label] || { key: "", fly: 1, hold: 1 };
+      const key = cfg.key || "";
+      const ov = window.__dmhPace || null;
+      const ovF = ov && key && ov["fly" + key] !== undefined ? ov["fly" + key] : null;
+      const ovH = ov && key && ov["hold" + key] !== undefined ? ov["hold" + key] : null;
+      const tp = ovF !== null ? ovF : (key ? this.p("fly" + key, null) : null);
+      const hp = ovH !== null ? ovH : (key ? this.p("hold" + key, null) : null);
+      const flyU = tp === null ? cfg.fly : tp;
+      const holdU = hp === null ? cfg.hold : hp;
       const z = parseFloat(el.getAttribute("data-z") || "0");
-      const hold = parseFloat(el.getAttribute("data-hold") || "0") * holdScale;
-      const travel = (z - prevZ) * perUnit;
+      const travel = Math.max(1, flyU * vh / fly);
+      const hold = Math.max(0, holdU * vh * holdScale);
       const travelStart = t, start = t + travel;
       t = start + hold;
-      prevZ = z;
-      return { el, z, hold, travel, travelStart, start, end: start + hold };
+      return { el, label, key, z, hold, travel, travelStart, start, end: start + hold, flyU, holdU };
     });
     this.tl.forEach((p, i) => {
       const nxt = this.tl[i + 1];
@@ -1251,7 +1290,58 @@ class Component extends DCLogic {
         fit.style.transform = "scale(" + Math.max(k, 0.2).toFixed(4) + ")";
       }
     }
+    this.paceHud();
     this.onScroll();
+  }
+
+  paceHud() {
+    const hud = document.querySelector("[data-pacehud]");
+    if (!hud) return;
+    const on = !!this.p("pacingHud", false);
+    hud.style.display = on ? "flex" : "none";
+    if (!on || !this.tl) return;
+    const rows = hud.querySelector("[data-pacerows]");
+    const sig = this.tl.map(p => p.label + p.flyU + "/" + p.holdU).join("|");
+    if (sig !== this._hudSig) {
+      this._hudSig = sig;
+      this._hudIdx = "";
+      rows.textContent = "";
+      this.tl.forEach(p => {
+        const r = document.createElement("div");
+        r.style.cssText = "display:flex;justify-content:space-between;gap:20px;cursor:pointer;padding:1px 0;transition:color .18s ease;color:rgba(244,242,239,0.55);";
+        const a = document.createElement("span");
+        a.textContent = p.label || "—";
+        const b = document.createElement("span");
+        b.textContent = (p.flyU || 0).toFixed(1) + " · " + (p.holdU || 0).toFixed(1);
+        b.style.cssText = "font-variant-numeric:tabular-nums;opacity:.66;";
+        r.appendChild(a); r.appendChild(b);
+        r.onclick = () => window.scrollTo({ top: Math.round(p.start + 4), behavior: "smooth" });
+        rows.appendChild(r);
+      });
+      const tot = document.createElement("div");
+      tot.style.cssText = "margin-top:5px;padding-top:5px;border-top:1px solid rgba(244,242,239,0.12);display:flex;justify-content:space-between;gap:20px;color:rgba(244,242,239,0.32);";
+      const t1 = document.createElement("span"); t1.textContent = "total";
+      const t2 = document.createElement("span");
+      t2.textContent = Math.round(this.total / Math.max(420, window.innerHeight)) + " screens";
+      t2.style.cssText = "font-variant-numeric:tabular-nums;";
+      tot.appendChild(t1); tot.appendChild(t2);
+      rows.appendChild(tot);
+    }
+    const s = this._sSmooth === undefined ? window.scrollY : this._sSmooth;
+    let idx = -1, mode = 0;
+    for (let i = 0; i < this.tl.length; i++) {
+      const p = this.tl[i];
+      if (s >= p.travelStart && s < p.start) { idx = i; mode = 1; break; }
+      if (s >= p.start && s <= p.end) { idx = i; mode = 2; break; }
+    }
+    const stamp = idx + ":" + mode;
+    if (stamp === this._hudIdx) return;
+    this._hudIdx = stamp;
+    for (let i = 0; i < this.tl.length; i++) {
+      const k = rows.children[i];
+      if (!k) continue;
+      k.style.color = i !== idx ? "rgba(244,242,239,0.55)" : mode === 2 ? "#ffd23f" : "#12c2b0";
+    }
   }
 
   camZ(s) {
@@ -1295,6 +1385,7 @@ class Component extends DCLogic {
 
     const bar = document.querySelector("[data-bar]");
     if (bar) bar.style.width = (100 * s / this.total).toFixed(2) + "%";
+    this.paceHud();
     const prevS = this._lastS;
     if (s > 120) { clearTimeout(this._cueT); const cue = document.querySelector("[data-scrollcue]"); if (cue && cue.style.opacity !== "0") cue.style.opacity = "0"; }
     if (s > 200) this._noReset = false;
@@ -1432,7 +1523,10 @@ class Component extends DCLogic {
       const inField = cam > Z_START - 1500 && cam < Z_END + 1500;
       const post = Math.min(1, Math.max(0, (cam - Z_END) / 900));
       hud.style.opacity = inField && post < 0.15 ? "1" : "0";
-      this.paintTimeGraph(Math.min(Math.max((cam - Z_START) / (Z_END - Z_START), 0), 1), (this._cxFly === undefined || this._cxFly >= 0.985 || (this._cxK !== undefined && this._cxK >= 0.999)) && cam > Z_START - 9400 && cam < Z_END + 14000, post);
+      const duoT = this.tl.find(t => t.el.hasAttribute("data-duo"));
+      const inDuoCard = !!duoT && s >= duoT.travelStart - 100 && s <= duoT.end + 200;
+      const tgShow = (((this._cxFly || 0) > 0) || inDuoCard) && cam > Z_START - 9400 && cam < Z_END + 14000;
+      this.paintTimeGraph(Math.min(Math.max((cam - Z_START) / (Z_END - Z_START), 0), 1), tgShow, post);
       if (inField) {
         const k = Math.min(Math.max((cam - Z_START) / (Z_END - Z_START), 0), 1);
         const idx = Math.min(Math.floor(k * ALBUMS.length), ALBUMS.length - 1);
@@ -1449,7 +1543,7 @@ class Component extends DCLogic {
           const y0m = tgm.y0, y1m = tgm.y1, curYm = y0m + (y1m - y0m) * k;
           let nm = tgm.pts[0];
           for (const pt of tgm.pts) { if (pt.y <= curYm) nm = pt; }
-          const best = nm.d >= nm.a ? ["DWELLING", "#ff2fd6"] : ["ARRIVING", "#ffd23f"];
+          const best = nm.d >= nm.a ? ["DWELLING", "#ff2fd6"] : ["ESCAPING", "#ffd23f"];
           if (mEl.textContent !== best[0]) mEl.textContent = best[0];
           mEl.style.color = best[1];
         }
@@ -1462,6 +1556,7 @@ class Component extends DCLogic {
     const pl = this.tl.find(p => p.el.hasAttribute("data-playlist"));
     if (pl && pl.hold) {
       const k = Math.min(Math.max((s - pl.start) / pl.hold, 0), 1);
+      this.plK = k;
       const active = s >= pl.start - 260 && s <= pl.end + 260;
       if (active !== this.plActive) {
         this.plActive = active;
@@ -1470,9 +1565,6 @@ class Component extends DCLogic {
         this.plEl = pl.el;
         if (active) this.fillT = this.dotSrc ? performance.now() : 0;
       }
-      const ss = k < 0.08 ? -1 : k < 0.22 ? 0 : k < 0.40 ? 1 : k < 0.58 ? 2 : 3;
-      const goingBack = s < (prevS === undefined ? s : prevS);
-      if (ss > this.plStage || (goingBack && ss < this.plStage)) { this.plStage = ss; this.plT = performance.now(); }
       const wt = Math.min(Math.max((k - 0.62) / 0.3, 0), 1);
       this.wipeTarget = wt * wt * (3 - 2 * wt);
       this.wipeCard = pl.el;
@@ -1673,6 +1765,7 @@ class Component extends DCLogic {
     const PAL = [[255,31,61],[31,60,232],[255,47,214],[242,227,58],[18,194,176],[15,156,79],[255,255,255],[255,122,31]];
     if (this.fillT === 0 && this.dotSrc) this.fillT = performance.now();
     const fp = this.fillT ? Math.min(1, (performance.now() - this.fillT) / 1900) : 0;
+    this._dotFill = fp;
     for (const p of sh.parts) {
       if (!p.col) p.col = PAL[Math.abs(Math.round(p.x * 7.3 + p.y * 3.1 + p.reach)) % PAL.length];
       let fy = 0, fa = 1;
@@ -1740,7 +1833,7 @@ class Component extends DCLogic {
     const midY = h / 2;
     const left = R + 4, right = w - R - 4;
 
-    // x = dwelling − arriving, domain −1…+1: left reaches for the exit, right stays in it
+    // x = dwelling − escaping, domain −1…+1: left reaches for the exit, right stays in it
     const items = SPEC.map((p, i) => ({ i, x: left + (((p[4] - p[5]) / 100 + 1) / 2) * (right - left) }));
     items.sort((m, n) => m.x - n.x);
 
@@ -1830,6 +1923,35 @@ class Component extends DCLogic {
     if (t) { t.textContent = "Hover a marker to see what happened"; t.style.color = "rgba(244,242,239,0.6)"; t.style.animation = "capBreathe 3.4s ease-in-out infinite"; }
     document.querySelectorAll("[data-era-band]").forEach(el => { el.style.backgroundColor = "rgba(244,242,239,0.02)"; el.style.borderLeftColor = "rgba(244,242,239,0.1)"; el.style.borderRightColor = "rgba(244,242,239,0.1)"; });
 
+  }
+
+  // 25/50/75% gridlines, mapped with the same scale the canvas plot uses
+  tgTicks(cv) {
+    const box = document.querySelector("[data-tgticks]");
+    if (!box || !cv) return;
+    const h = cv.clientHeight;
+    if (h < 20) return;
+    const padT = 30, padB = 30, insetL = 54;
+    const Y = v => h - padB - Math.min(1, Math.max(0, (v - 0.05) / 0.72)) * (h - padT - padB);
+    if (!box.childElementCount) {
+      [0.25, 0.5, 0.75].forEach(v => {
+        const row = document.createElement("div");
+        row.setAttribute("data-tgtick", String(v));
+        row.style.cssText = "position:absolute;left:0;right:18px;height:0;display:flex;align-items:center;gap:6px;z-index:0;";
+        const lab = document.createElement("span");
+        lab.textContent = Math.round(v * 100) + "%";
+        lab.style.cssText = "flex:0 0 auto;width:" + (insetL - 12) + "px;text-align:right;font-family:Inter,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.08em;color:rgba(244,242,239,0.4);";
+        const line = document.createElement("span");
+        line.style.cssText = "flex:1 1 auto;height:1px;background:rgba(244,242,239,0.09);";
+        row.appendChild(lab); row.appendChild(line);
+        box.appendChild(row);
+      });
+    }
+    [0.25, 0.5, 0.75].forEach(v => {
+      const row = box.querySelector('[data-tgtick="' + v + '"]');
+      if (row) row.style.top = Y(v).toFixed(1) + "px";
+    });
+    box.style.opacity = "1";
   }
 
   layoutTgLegend(k, e, cv) {
@@ -1923,12 +2045,55 @@ class Component extends DCLogic {
     tick();
   }
 
+  tween(key, on, dur) {
+    if (!this._tw) this._tw = {};
+    const now = performance.now();
+    let s = this._tw[key];
+    if (!s) s = this._tw[key] = { on: false, v: 0, from: 0, t: 0 };
+    if (s.on !== on) { s.on = on; s.from = s.v; s.t = now; }
+    if (!s.t) { s.v = 0; return s.v; }
+    const p = Math.min(1, (now - s.t) / Math.max(60, dur));
+    const e = p * p * (3 - 2 * p);
+    s.v = s.from + ((on ? 1 : 0) - s.from) * e;
+    if (p < 1) { clearTimeout(this._cxAnim); this._cxAnim = setTimeout(() => this.onScroll(true), 32); }
+    return s.v;
+  }
+
+  cxRunType() {
+    if (this._cxRunTyped) return;
+    this._cxRunTyped = true;
+    this._cxRunDone = false;
+    const el = document.querySelector("[data-cxrun]");
+    if (!el) return;
+    const full = CORPUS_RUN;
+    el.textContent = "";
+    let i = 0;
+    const tick = () => {
+      if (!this._cxRunTyped) return;
+      el.textContent = full.slice(0, i);
+      i += 2;
+      if (i <= full.length + 2) { this._cx6 = setTimeout(tick, 16); return; }
+      el.textContent = full;
+      this._cxRunDone = true;
+      this.onScroll(true);
+    };
+    tick();
+  }
+
+  cxResetRun() {
+    this._cxRunTyped = false;
+    this._cxRunDone = false;
+    clearTimeout(this._cx6);
+    const el = document.querySelector("[data-cxrun]");
+    if (el) el.textContent = "";
+  }
+
   cxResetType() {
     this._cxTyped = false;
     this._cxTypeDone = false;
     this._cxWallStarted = false;
     this._cxWallDone = false;
-    [this._cx1, this._cx2, this._cx3, this._cx4, this._cx5].forEach(t => clearTimeout(t));
+    [this._cx1, this._cx2, this._cx3, this._cx4].forEach(t => clearTimeout(t));
     const pre = document.querySelector("[data-cxpre]");
     const wall = document.querySelector("[data-cxwall]");
     if (pre) pre.textContent = CORPUS_PRE;
@@ -1937,6 +2102,10 @@ class Component extends DCLogic {
 
   cxHardReset() {
     this.cxResetType();
+    this.cxResetRun();
+    this._cxK = undefined;
+    clearTimeout(this._cxAnim);
+    if (this._tw) Object.keys(this._tw).forEach(k => { if (k.indexOf("cx_") === 0) delete this._tw[k]; });
     this._cxStage = 0;
     this._cxStageT = performance.now();
     this._cxFly = 0;
@@ -1982,8 +2151,10 @@ class Component extends DCLogic {
     const ease = t => t * t * (3 - 2 * t);
 
     // ---- stage table: weight of scroll, minimum dwell in ms ----
-    const W = [0.07, 0.08, 0.05, 0.07, 0.05, 0.06, 0.10, 0.09, 0.09, 0.09, 0.06, 0.19];
-    const DWELL = [0, 0, 0, 0, 0, 2200, 1500, 1000, 1000, 1000, 1500, 0];
+    const WRAW = [0.084, 0.125, 0.05, 0.14, 0.03, 0.06, 0.10, 0.10, 0.10, 0.10, 0.09, 0.14, 0.19];
+    const DWELL = [700, 1000, 0, 1500, 0, 2200, 1500, 1100, 1100, 1100, 1200, 1600, 0];
+    const wsum = WRAW.reduce((a, b) => a + b, 0);
+    const W = WRAW.map(w => w / wsum);
     const B = [0];
     for (let i = 0; i < W.length; i++) B.push(B[i] + W[i]);
 
@@ -1991,10 +2162,14 @@ class Component extends DCLogic {
     let want = 0;
     for (let i = 0; i < W.length; i++) if (k >= B[i]) want = i;
 
+    // once the opening sentence has handed off, scrolling back inside the card
+    // must not replay it — only leaving the card entirely rewinds that far
+    if (want < 3 && this._cxStage >= 3 && k > 0.03) want = 3;
     if (want < this._cxStage) {
       this._cxStage = want;
       this._cxStageT = performance.now();
       if (this._cxStage < 5) { this.cxResetType(); }
+      if (this._cxStage < 11) { this.cxResetRun(); }
       if (this._cxStage < 6) { this._cxWallStarted = false; this._cxWallDone = false; const w0 = document.querySelector("[data-cxwall]"); if (w0) { w0.style.transition = "none"; w0.style.height = "0px"; } }
     } else if (want > this._cxStage) {
       const st = this._cxStage;
@@ -2002,10 +2177,12 @@ class Component extends DCLogic {
       let ok = elapsed >= DWELL[st];
       if (st === 5) ok = ok && !!this._cxTypeDone;
       if (st === 6) ok = ok && !!this._cxWallDone && elapsed >= DWELL[6];
+      if (st === 11) ok = ok && !!this._cxRunDone;
       if (ok) {
         this._cxStage = st + 1;
         this._cxStageT = performance.now();
-      } else {
+      }
+      if (want > this._cxStage) {
         clearTimeout(this._cx5);
         this._cx5 = setTimeout(() => this.onScroll(true), 220);
       }
@@ -2015,11 +2192,11 @@ class Component extends DCLogic {
     const loc = cl(B[stage], B[stage + 1], kEff);
 
     // ---- 0/1 sentences in, 2 fade to the held phrase, 3 question in, 4 question out ----
-    const s1 = ease(cl(B[0], B[0] + W[0] * 0.9, kEff));
-    const s2v = ease(cl(B[1], B[1] + W[1] * 0.9, kEff));
-    const fOut = ease(cl(B[2], B[2] + W[2] * 0.9, kEff));
-    const qIn = ease(cl(B[3], B[3] + W[3] * 0.8, kEff));
-    const qOut = ease(cl(B[4], B[4] + W[4] * 0.9, kEff));
+    const s1 = this.tween("cx_s1", k > 0.004, 560);
+    const s2v = this.tween("cx_s2", stage >= 1, 620);
+    const fOut = this.tween("cx_fo", stage >= 2, 520);
+    const qIn = this.tween("cx_qi", stage >= 3, 620);
+    const qOut = this.tween("cx_qo", stage >= 4, 520);
 
     document.querySelectorAll("[data-cxfade]").forEach(el => { el.style.opacity = (s1 * (1 - fOut)).toFixed(3); });
     const s2El = document.querySelector("[data-cxs2]");
@@ -2036,7 +2213,8 @@ class Component extends DCLogic {
     if (q3) q3.style.opacity = (qIn * (1 - qOut)).toFixed(3);
 
     // ---- 5 SYSTEM line types + caret blinks ----
-    if (stage >= 5) this.cxType(); else this.cxResetType();
+    const codeOn = stage >= 4 && qOut >= 0.995;
+    if (codeOn) this.cxType(); else this.cxResetType();
     const wallEl = document.querySelector("[data-cxwall]");
     if (stage < 6) { if (wallEl && wallEl.style.height !== "0px") { wallEl.style.transition = "none"; wallEl.style.height = "0px"; } }
     else this.cxLoadWall();
@@ -2045,11 +2223,11 @@ class Component extends DCLogic {
     const codeBox = document.querySelector("[data-cxcode]");
     if (inner && codeBox) {
       inner.style.transformOrigin = "50% 0";
-      const sc = Math.max(0.62, Math.min(1, (codeBox.clientHeight - 12) / Math.max(1, inner.scrollHeight)));
+      const sc = Math.max(0.42, Math.min(1, (codeBox.clientHeight - 12) / Math.max(1, inner.scrollHeight)));
       inner.style.transform = sc < 0.999 ? "scale(" + sc.toFixed(3) + ")" : "none";
     }
     const code = document.querySelector("[data-cxcode]");
-    const cin = stage >= 5 ? ease(cl(B[5], B[5] + W[5] * 0.5, kEff)) : 0;
+    const cin = this.tween("cx_code", codeOn, 620);
     if (code) {
       code.style.opacity = cin.toFixed(3);
       code.style.pointerEvents = cin > 0.5 ? "auto" : "none";
@@ -2057,10 +2235,10 @@ class Component extends DCLogic {
     const scan = document.querySelector("[data-cxscan]");
     if (scan) scan.style.opacity = (cin * 0.55).toFixed(3);
     const caretEl = document.querySelector("[data-cxcaret]");
-    if (caretEl) caretEl.style.display = (stage === 5 || (stage === 6 && !this._cxWallDone)) ? "inline-block" : "none";
+    if (caretEl) caretEl.style.display = ((codeOn && stage <= 5) || (stage === 6 && !this._cxWallDone)) ? "inline-block" : "none";
 
     // ---- 7/8/9 condense one definition per stage; 10 hands off ----
-    const handoff = stage >= 11;
+    const handoff = stage >= 12;
     for (let i = 0; i < 3; i++) {
       const cat = document.querySelector('[data-cxcat="' + i + '"]');
       if (!cat) continue;
@@ -2074,7 +2252,7 @@ class Component extends DCLogic {
         body.style.opacity = handoff ? "0" : past ? "0" : active ? "1" : stage < 7 ? "1" : "0.22";
       }
       if (sum) {
-        sum.style.maxHeight = past ? "170px" : "0px";
+        sum.style.maxHeight = past ? "260px" : "0px";
         sum.style.opacity = handoff ? "0" : past ? "1" : "0";
       }
       if (lab) {
@@ -2085,9 +2263,14 @@ class Component extends DCLogic {
     }
     const preEl = document.querySelector("[data-cxpre]");
     if (preEl) preEl.style.opacity = handoff ? "0" : "1";
+    if (stage >= 11) this.cxRunType(); else this.cxResetRun();
+    const runLine = document.querySelector("[data-cxrunline]");
+    if (runLine) runLine.style.opacity = stage < 11 ? "0" : handoff ? "0" : "1";
+    const runCaret = document.querySelector("[data-cxruncaret]");
+    if (runCaret) runCaret.style.display = (stage === 11 && !this._cxRunDone) ? "inline-block" : "none";
 
     // ---- 10 letters travel to the graph trailheads ----
-    this._cxLStart = B[11];
+    this._cxLStart = B[12];
     const lp = handoff ? ease(cl(0, 0.08, loc)) : 0;
     const fly = handoff ? ease(cl(0.06, 1, loc)) : 0;
     this._cxFly = fly;
@@ -2104,15 +2287,28 @@ class Component extends DCLogic {
     const gh = gr.height, padT = 34, padB = 30;
     const gY = v => gr.top + gh - padB - Math.min(1, Math.max(0, (v - 0.05) / 0.72)) * (gh - padT - padB);
     const keys = ["a", "d", "n"];
+
+    // whole words are ~16px tall in a ~71px plot band, so two close series
+    // would print on top of each other: resolve the three targets together,
+    // pushing them a line apart and keeping them inside the band
+    const lab = this._tgLab || {};
+    const START_PX = 15.5, END_PX = 11;
     for (let i = 0; i < 3; i++) {
       const el = letters.querySelector('[data-cxL="' + i + '"]');
       const cat = document.querySelector('[data-cxcat="' + i + '"]');
       if (!el || !cat) continue;
       const cr = cat.getBoundingClientRect();
-      const x1 = gr.left + 54 + 9, y1 = gY(p0[keys[i]]) - (el.offsetHeight || 16) / 2;
+      const tgt = lab[keys[i]];
+      // shrink to the canvas label's size on the way, so the two are identical
+      // at the moment of arrival
+      const fs = START_PX + (END_PX - START_PX) * fly;
+      el.style.fontSize = fs.toFixed(2) + "px";
+      const x1 = tgt ? gr.left + tgt.x : gr.left + 54 + 12;
+      const y1 = (tgt ? gr.top + tgt.y : gY(p0[keys[i]])) - (el.offsetHeight || 14) / 2;
       el.style.left = (cr.left + (x1 - cr.left) * fly).toFixed(1) + "px";
       el.style.top = (cr.top + (y1 - cr.top) * fly).toFixed(1) + "px";
-      el.style.opacity = fly > 0.985 ? "0" : "1";
+      // full strength the whole way, then gone the moment the twin takes over
+      el.style.opacity = fly >= 0.999 ? "0" : "1";
       const hex = el.getAttribute("data-cxhue") || "#3bff6e";
       const m2 = ease(cl(0.15, 0.7, fly));
       const from = [59, 255, 110];
@@ -2193,8 +2389,10 @@ class Component extends DCLogic {
     if (!live) {
       cv.style.opacity = "0";
       grid.style.opacity = "0";
-      const m0 = document.querySelector("[data-duomorph]");
-      if (m0) m0.style.opacity = "0";
+      const hA0 = document.querySelector("[data-duoh-a]");
+      const hB0 = document.querySelector("[data-duoh-b]");
+      if (hA0) hA0.style.opacity = "0";
+      if (hB0) hB0.style.opacity = "0";
       this._duoK = this._duoPast ? 1 : 0;
       this._dt = null;
       if (tgEl) tgEl.style.opacity = this._duoPast ? "0" : "1";
@@ -2215,8 +2413,10 @@ class Component extends DCLogic {
       const el = document.querySelector(sel);
       if (el) { el.style.opacity = chromeOut; el.style.pointerEvents = "none"; }
     });
-    const morph = document.querySelector("[data-duomorph]");
-    if (morph) morph.style.opacity = (cl(0.04, 0.34, k) * (1 - cl(0.4, 0.48, k))).toFixed(3);
+    // headline slot: the framing line first, then the finding, crossfading on scroll
+    const hb = cl(0.68, 0.8, k);
+    const hA = document.querySelector("[data-duoh-a]");
+    const hB = document.querySelector("[data-duoh-b]");
     const head = document.querySelector("[data-duohead]");
     const sub = document.querySelector("[data-duosub]");
     const hint = document.querySelector("[data-duohint]");
@@ -2224,11 +2424,15 @@ class Component extends DCLogic {
     if (k < 0.42) { this._revealT = 0; this._pulseArmed = false; }
     const el = this._revealT ? performance.now() - this._revealT : -1;
     const step = (from, dur) => el < 0 ? 0 : Math.min(1, Math.max(0, (el - from) / dur));
-    const reveal = step(0, 520).toFixed(3);
+    const revealN = step(0, 520);
+    const reveal = revealN.toFixed(3);
     if (head) head.style.opacity = reveal;
     document.querySelectorAll("[data-duolab]").forEach(e2 => { e2.style.opacity = reveal; });
-    if (sub) sub.style.opacity = step(420, 520).toFixed(3);
-    if (hint) hint.style.opacity = step(420, 520).toFixed(3);
+    if (hA) hA.style.opacity = (revealN * (1 - hb)).toFixed(3);
+    if (hB) hB.style.opacity = (revealN * hb).toFixed(3);
+    const later = Math.min(step(420, 520), hb);
+    if (sub) sub.style.opacity = later.toFixed(3);
+    if (hint) hint.style.opacity = later.toFixed(3);
     this._coverT = step(760, 900);
     this._duoLastK = k;
     if (this._revealT && el < 5200 && !this._revealRaf) {
@@ -2268,7 +2472,7 @@ class Component extends DCLogic {
         const cv2 = this._coverT === undefined ? 0 : this._coverT;
         const ct = Math.min(1, Math.max(0, (cv2 - (i / Math.max(1, tiles.length)) * 0.35) / 0.65));
         img.style.opacity = (real ? ct : 0).toFixed(3);
-        el.style.pointerEvents = ct > 0.85 ? "auto" : "none";
+        el.style.pointerEvents = (ct > 0.85 && hb >= 0.999) ? "auto" : "none";
       }
     });
 
@@ -2375,6 +2579,9 @@ class Component extends DCLogic {
     const series = (post || 0) > 0.35 ? [["a", "#ffd23f"], ["d", "#ff2fd6"]] : [["n", "#12c2b0"], ["a", "#ffd23f"], ["d", "#ff2fd6"]];
     const focus = undefined;
     this._tgPts = {};
+    const LINE_WORD = { d: "dwelling", a: "escaping", n: "narrating" };
+    const placedLabs = [];
+    this._tgLab = {};
     for (const [key, col] of series) {
       const dim = focus && focus !== key ? 0.13 : 1;
       const pts = [];
@@ -2450,7 +2657,22 @@ class Component extends DCLogic {
       g.textBaseline = "middle";
       g.fillStyle = col;
       g.globalAlpha = dim;
-      g.fillText(key.toUpperCase(), hx + 9, hy);
+      const word = LINE_WORD[key] || key.toUpperCase();
+      // whole words need room: keep each one clear of the ones already drawn
+      // and inside the canvas, and pull it left of the edge if it would clip
+      const lw = g.measureText(word).width;
+      let ly = Math.min(h - 9, Math.max(9, hy));
+      for (let n = 0; n < 6; n++) {
+        const hit = placedLabs.find(p => Math.abs(p - ly) < 13);
+        if (hit === undefined) break;
+        ly = hit + (hy >= hit ? 13 : -13);
+        ly = Math.min(h - 9, Math.max(9, ly));
+      }
+      placedLabs.push(ly);
+      const lx = Math.min(hx + 9, w - lw - 4);
+      this._tgLab[key] = { x: lx, y: ly, word: word, size: 11 };
+      const arrived = (this._cxFly === undefined || this._cxFly >= 0.999) && !(e > 0.6);
+      if (arrived) g.fillText(word, lx, ly);
       g.globalAlpha = 1;
       const TRAIL = ["#ffffff", col, "#f2e33a", "#12c2b0", "#ff2fd6"];
       const jig = [[0, 0, 4], [-5, -4, 3], [-9, 3, 3], [-13, -2, 2.4], [4, -5, 2.4], [-18, 5, 2]];
@@ -2474,11 +2696,6 @@ class Component extends DCLogic {
       g.strokeStyle = "rgba(244,242,239,0.4)";
       g.lineWidth = 1;
       g.beginPath(); g.moveTo(x, yy); g.lineTo(x, yy + (up ? -16 : 16)); g.stroke();
-      g.font = "500 9px Inter, sans-serif";
-      g.fillStyle = "rgba(244,242,239,0.8)";
-      const label = (up ? "peak " : "low ") + mk.y + " · " + Math.round(mk.v * 100) + "%";
-      const tw = g.measureText(label).width;
-      g.fillText(label, Math.min(w - tw - 2, Math.max(2, x - tw / 2)), Math.min(h - 4, Math.max(10, yy + (up ? -21 : 27))));
       g.globalAlpha = 1;
     });
     g.font = '600 8.5px Inter, sans-serif';
@@ -2512,6 +2729,7 @@ class Component extends DCLogic {
       if (seg) seg.dataset.share = (v / tot * 100).toFixed(2);
     });
     this.layoutTgLegend(k, e, cv);
+    this.tgTicks(cv);
     const ov = wrap.querySelector("[data-tgover]");
     if (ov) {
       const live = e > 0.6 && !(this._duoK > 0);
@@ -2667,7 +2885,7 @@ class Component extends DCLogic {
       if (gc) {
         if (live && !(this._duoK > 0)) {
           if (!this._isoT) this._isoT = performance.now();
-          const ready = performance.now() - this._isoT > 10000;
+          const ready = performance.now() - this._isoT > 4000;
           gc.style.opacity = ready ? "1" : "0";
           const ct2 = gc.querySelector("[data-cuetext]");
           if (ct2) ct2.style.animation = ready ? "capBreathe 2.4s ease-in-out infinite" : "none";
@@ -2698,29 +2916,48 @@ class Component extends DCLogic {
   renderPlStages() {
     const el = this.plEl;
     if (!el) return;
-    const now = performance.now();
-    if (this.plStage === undefined) { this.plStage = -1; this.plT = now; }
-    const dur = this.plStage < 0 ? 3000 : 8500;
-    if (this.plActive && this.plStage < 3 && now - this.plT > dur) { this.plStage++; this.plT = now; }
-    const st = this.plStage;
-    const frac = Math.min(1, (now - this.plT) / (st < 0 ? 3000 : 8500));
-    el.querySelectorAll("[data-stage]").forEach(node => {
-      const i = Number(node.getAttribute("data-stage"));
-      let op;
-      if (i === 3) op = st === 3 ? 1 : 0;
-      else if (st === 3) op = 0;
-      else op = i > st ? 0 : i === st ? 1 : 0.3;
-      node.style.opacity = op.toFixed(3);
-      node.style.transform = i < 3 && i === st ? "translateY(0)" : i < 3 && i > st ? "translateY(8px)" : "translateY(0)";
-      node.style.transition = "opacity 0.55s ease, transform 0.55s ease";
+    const k = this.plK === undefined ? 0 : this.plK;
+    // one band per stanza; the CSS transition owns the fade, so stopping
+    // mid-scroll still lands it at full opacity
+    const AT = [0, 0.14, 0.34, 0.54];
+    const faceIn = (this._dotFill || 0) > 0.14;
+    el.querySelectorAll("[data-plline]").forEach(node => {
+      const i2 = Number(node.getAttribute("data-plline"));
+      const on = i2 === 0 ? faceIn : k >= (AT[i2] === undefined ? 1 : AT[i2]);
+      node.style.opacity = on ? "1" : "0";
     });
-    const title = el.querySelector("[data-title]");
-    if (title) title.style.opacity = st === 3 ? "0" : "1";
-    el.querySelectorAll("[data-bar]").forEach(node => {
-      const i = Number(node.getAttribute("data-bar"));
-      node.style.width = (i < st ? 100 : i === st && st < 3 ? frac * 100 : 0).toFixed(1) + "%";
-      node.style.opacity = st === 3 ? "0" : i <= st ? "1" : "0";
-    });
+  }
+
+
+  paceApi() {
+    return {
+      screens: (this.tl || []).map(p => ({
+        label: p.label, key: p.key, fly: p.flyU, hold: p.holdU,
+        start: p.start, end: p.end, travelStart: p.travelStart
+      })),
+      total: this.total || 0,
+      vh: Math.max(420, window.innerHeight),
+      at: this._sSmooth === undefined ? window.scrollY : this._sSmooth,
+      set: (o) => {
+        window.__dmhPace = Object.assign({}, window.__dmhPace, o);
+        this.measure();
+      },
+      jump: (y) => window.scrollTo({ top: Math.round(y), behavior: "smooth" }),
+      begin: () => { const b = document.querySelector("[data-beginbtn]"); if (b) b.click(); }
+    };
+  }
+
+  stepScroll(ease) {
+    if (this.total) {
+      const sy = Math.min(Math.max(window.scrollY, 0), this.total);
+      if (this._sTarget !== sy) this._sTarget = sy;
+    }
+    if (this._sTarget === undefined) return;
+    const cur = this._sSmooth === undefined ? this._sTarget : this._sSmooth;
+    const d = this._sTarget - cur;
+    const k = Math.min(1, Math.max(0.05, ease === undefined ? 0.18 : ease));
+    if (Math.abs(d) > 0.4) { this._sSmooth = cur + d * k; this.onScroll(true); }
+    else if (this._sSmooth !== this._sTarget) { this._sSmooth = this._sTarget; this.onScroll(true); }
   }
 
   startLoop() {
@@ -2738,16 +2975,8 @@ class Component extends DCLogic {
       if (this.plActive) { this.renderPlStages(); this.stepWipe(); }
       // read the scroll position from the loop itself: a hot-swapped instance can lose
       // its scroll listener, and the whole stage depends on this number advancing
-      if (this.total) {
-        const sy = Math.min(Math.max(window.scrollY, 0), this.total);
-        if (this._sTarget !== sy) this._sTarget = sy;
-      }
-      if (this._sTarget !== undefined) {
-        const cur = this._sSmooth === undefined ? this._sTarget : this._sSmooth;
-        const d = this._sTarget - cur;
-        if (Math.abs(d) > 0.4) { this._sSmooth = cur + d * 0.18; this.onScroll(true); }
-        else if (this._sSmooth !== this._sTarget) { this._sSmooth = this._sTarget; this.onScroll(true); }
-      }
+      this._lastTick = performance.now();
+      this.stepScroll(0.18);
     };
     this._dirty = true;
     this._raf = requestAnimationFrame(loop);
@@ -3240,7 +3469,7 @@ class Component extends DCLogic {
         wy: Math.round(Math.sin(ang) * spreadY * rad * (ry > 0.5 ? 1 : -1) * (ry > 0.5 ? 1 : 1)),
         wz: Math.round(Z_START + i * gapZ + (ry - 0.5) * gapZ * 0.5),
         base: Math.round(size), half: Math.round(-size / 2),
-        src: "covers/" + pad(a[0]) + ".png",
+        src: "covers-sm/" + pad(a[0]) + ".jpg",
         alt: a[2] + " — " + a[1],
         year: a[3],
         kind: "cover",
@@ -3271,7 +3500,7 @@ class Component extends DCLogic {
     const song = SONGS[Math.min(st.qi, SONGS.length - 1)];
     const done = st.qi >= SONGS.length;
     const agree = st.guesses.filter(g => g.guess === g.truth).length;
-    const catColor = n => n === "DWELLING" ? accent : n === "ARRIVING" ? "rgba(244,242,239,0.45)" : "rgba(244,242,239,0.18)";
+    const catColor = n => n === "DWELLING" ? accent : n === "ESCAPING" ? "rgba(244,242,239,0.45)" : "rgba(244,242,239,0.18)";
     const tally = (arr, key) => CATS.map(name => {
       const n = arr.filter(g => g[key] === name).length;
       return { name, color: catColor(name), val: n + "/5", w: (n / 5 * 100) + "%" };
@@ -3321,7 +3550,7 @@ class Component extends DCLogic {
       eras: ERAS.map((era, i) => ({ i: String(i), hue: era.hue, enter: () => this.showEra(i), leave: () => this.clearEra() })),
       ring: ringSet.map((a, i) => ({
         a: (i / ringSet.length * 360).toFixed(2),
-        src: "covers/" + pad(a[0]) + ".png", album: a[2]
+        src: "covers-sm/" + pad(a[0]) + ".jpg", album: a[2]
       })),
       ringR,
       ringLeft: -this.p("ringOffset", 250),
@@ -3358,12 +3587,12 @@ class Component extends DCLogic {
         })),
       classCards: [
         { name: "Dwelling", hue: "#ff2fd6", gist: "Stays inside the feeling. No destination, no exit." },
-        { name: "Arriving", hue: "#ffd23f", gist: "Treats the pain as a gap to close — motion toward relief." },
+        { name: "Escaping", hue: "#ffd23f", gist: "Treats the pain as a gap to close — motion toward relief." },
         { name: "Narrating", hue: "#12c2b0", gist: "Tells it from a distance. The wound is reported, not lived." }
       ],
       tgLegend: [
         { key: "d", name: "dwelling", hue: "#ff2fd6" },
-        { key: "a", name: "arriving", hue: "#ffd23f" },
+        { key: "a", name: "escaping", hue: "#ffd23f" },
         { key: "n", name: "narrating", hue: "#12c2b0" }
       ],
       pollAnswered: st.playlist !== null,
@@ -3424,7 +3653,7 @@ class Component extends DCLogic {
           marks: Array.from({ length: 4 }, (_, i) => ({ radius: "50%", bg: accent, anim: "dwellPulse " + (1.5 + i * 0.2) + "s ease-in-out infinite " + (i * 0.15) + "s" })) },
         { gist: "Moves toward release.", motion: "drifts forward · opens", share: "2,024 songs · 30%",
           body: "A gap the song moves to close — healing, escape, transcendence, closure. Telic. It goes somewhere.",
-          word: "arriving",
+          word: "escaping",
           marks: Array.from({ length: 4 }, (_, i) => ({ radius: "50%", bg: "rgba(244,242,239,0.72)", anim: "arriveDrift " + (2 + i * 0.3) + "s ease-in-out infinite alternate " + (i * 0.2) + "s" })) },
         { gist: "Watches from outside.", motion: "frames · cuts · holds still", share: "2,805 songs · 42%",
           body: "Storytelling, satire, celebration — no personal stake in the suffering being inhabited.",
@@ -3569,7 +3798,7 @@ class Component extends DCLogic {
       filters: ["All"].concat(CATS).map(label => Object.assign(btn(label, st.filter === label), { pick: () => this.setState({ filter: label }) })),
       decadeFilters: ["All"].concat(DECADES.map(d => d[0])).map(label => Object.assign(btn(label, st.decade === label), { pick: () => this.setState({ decade: label }) })),
       sandboxAlbums: ALBUMS.filter(a => a[4] + a[5] + a[6] > 0).map(a => ({
-        src: "covers/" + pad(a[0]) + ".png", album: a[2],
+        src: "covers-sm/" + pad(a[0]) + ".jpg", album: a[2],
         op: visible.indexOf(a) >= 0 ? "1" : "0.12",
         pick: () => this.setState({ sel: a })
       })),
