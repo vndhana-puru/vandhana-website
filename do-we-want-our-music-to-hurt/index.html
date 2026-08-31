@@ -40,6 +40,24 @@
   @keyframes cuePulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
   @keyframes cueDot { 0% { transform: translateY(0); opacity: 0; } 22% { opacity: 1; } 100% { transform: translateY(26px); opacity: 0; } }
   @keyframes markPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.34); } }
+
+  /* ===== Mobile (phones): a non-playable "optimized for desktop" landing. The full piece is
+     desktop-only and scroll-locked on mobile, so only the title card is ever shown. Inline styles
+     win by specificity, so these overrides use !important. ===== */
+  @media (max-width: 700px) {
+    html, body { overflow-x: hidden !important; }
+
+    /* title card: drop the wide left gutter; hide the album-cover ring + play button; brighten and
+       size the pixel title; swap "click to begin" for the desktop notice; show the share button. */
+    [data-screen-label="Title card"] { padding: 8vh 6vw !important; }
+    [data-ring] { display: none !important; }
+    [data-herotext] { max-width: 92vw !important; }
+    [data-hero] { width: auto !important; height: auto !important; max-width: 88vw !important; max-height: 34vh !important; filter: brightness(1.4) !important; opacity: 1 !important; }
+    [data-beginbtn], [data-play] { display: none !important; }
+    [data-hint] { display: none !important; }
+    [data-mobnote] { display: block !important; }
+    [data-mobshare] { display: inline-flex !important; }
+  }
 </style>
 </helmet>
 
@@ -72,6 +90,7 @@
           <canvas data-play="1" style="display: block; width: 58px; height: 58px;"></canvas>
         </button>
         <div data-hint="1" style="height: 16px; font-family: Inter, system-ui, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(244,242,239,0.6); opacity: 0; pointer-events: none;">Click to begin</div>
+        <div data-mobnote="1" style="display: none; margin-top: 12px; max-width: 20em; font-family: Inter, system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; line-height: 1.75; text-transform: uppercase; color: rgba(244,242,239,0.62); text-wrap: pretty;">This experience is optimized for desktop screens</div>
       </div>
     </div>
 
@@ -174,7 +193,7 @@
     <div data-cxscan="1" style="position: absolute; inset: 0; opacity: 0; pointer-events: none; background-image: repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.32) 2px 3px);"></div>
     </div>
 
-    <div data-ov="1" data-duo="1" data-z="51200" data-chapter="II — Dwellers vs escapers" data-screen-label="Dwellers vs escapers" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 5vh 5vw; opacity: 0; pointer-events: none;">
+    <div data-ov="1" data-duo="1" data-noscale="1" data-z="51200" data-chapter="II — Dwellers vs escapers" data-screen-label="Dwellers vs escapers" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 5vh 5vw; opacity: 0; pointer-events: none;">
       <canvas data-duocv="1" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
       <div style="position: relative; width: min(1240px, 100%); display: flex; align-items: flex-end; justify-content: center; gap: 5vw;">
       <div data-duogrid="1" style="position: relative; flex: 0 0 auto; display: flex; align-items: flex-end; gap: 3.4vw; opacity: 0;">
@@ -337,6 +356,11 @@
     <div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; background: rgba(244,242,239,0.09); z-index: 60;">
       <div data-bar="1" style="height: 100%; width: 0%; background: {{ accent }};"></div>
     </div>
+
+    <!-- mobile-only "send to my computer" button — top-layer fixed so no section/overlay can
+         intercept the tap; a native mailto anchor (no JS) for maximum reliability on touch. -->
+    <a data-mobshare="1" href="{{ shareHref }}" style="display: none; position: fixed; left: 50%; bottom: 9vh; transform: translateX(-50%); z-index: 99; align-items: center; justify-content: center; gap: 9px; padding: 15px 26px; border: 1px solid rgba(244,242,239,0.4); border-radius: 999px; background: rgba(20,20,22,0.92); cursor: pointer; font-family: Inter, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; color: #fff; text-decoration: none; -webkit-tap-highlight-color: transparent;">Send to my computer&nbsp;&nbsp;↗</a>
+
     <div data-hud="1" style="position: fixed; left: 5vw; top: 26px; z-index: 60; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; padding: 16px 20px 15px; border-radius: 7px; background: rgba(8,8,10,0.55); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); box-shadow: inset 0 0 0 1px rgba(244,242,239,0.08); opacity: 0; transition: opacity 0.4s; text-align: left;">
       <div data-hud-year="1" style="font-family: Inter, sans-serif; font-size: 58px; font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; color: #fff;">1955</div>
       <div data-hud-alb="1" style="font-family: Lora, Georgia, serif; font-size: 18px; font-style: italic; color: rgba(244,242,239,0.92);"></div>
@@ -604,7 +628,7 @@ const AMB_TRACKS = [
   { f: "uploads/Frank Ocean - Ivy.mp3", t: "Ivy", a: "Frank Ocean" },
   { f: "uploads/Cautious Clay - Cold War (Official Audio).mp3", t: "Cold War", a: "Cautious Clay" },
   { f: "uploads/Solange - Losing You (Audio).mp3", t: "Losing You", a: "Solange" },
-  { f: "uploads/The Marias - All I Really Want Is You (Official Audio).mp3", t: "All I Really Want Is You", a: "The Mar\u00edas" },
+  { f: "uploads/The Mari\u0301as - All I Really Want Is You (Official Audio).mp3", t: "All I Really Want Is You", a: "The Mar\u00edas" },
   { f: "uploads/Weston Estate - Pears (Official Visualizer).mp3", t: "Pears", a: "Weston Estate" },
   { f: "uploads/Seeds.mp3", t: "Seeds", a: "Bennett Coast" },
   { f: "uploads/Fleetwood Mac - Dreams (Official Audio).mp3", t: "Dreams", a: "Fleetwood Mac" }
@@ -2944,7 +2968,7 @@ class Component extends DCLogic {
 
     // the plot hands its pixels straight to this canvas — scroll-TRIGGERED at
     // k=0.02, then the morph plays out on its own 2s clock (never scrubbed)
-    const flyRaw = this.tween("duo_fly", k > 0.02, 2000);
+    const flyRaw = this.tween("duo_fly", k > 0.02, 2600);
     const fly = ease(flyRaw);
     // the grid morph plays on its own 2s wall clock; drive the takeover value off it
     // too (not just scroll-k) so the time-graph chrome — line, title, "click a marker"
@@ -3030,7 +3054,7 @@ class Component extends DCLogic {
     const landed = fly >= 0.999;
     if (landed) { if (!this._landT) this._landT = performance.now(); }
     else this._landT = 0;
-    const coverT = this._landT ? Math.min(1, Math.max(0, (performance.now() - this._landT - 40) / 650)) : 0;
+    const coverT = this._landT ? Math.min(1, Math.max(0, (performance.now() - this._landT - 40) / 900)) : 0;
     this._coverT = coverT;
     const tiles = [...grid.querySelectorAll("[data-duocell]")];
     tiles.forEach((el, i) => {
@@ -3058,7 +3082,7 @@ class Component extends DCLogic {
     tgt.forEach(sd => {
       g.fillStyle = sd.hue;
       sd.parts.forEach(p => {
-        const t = Math.min(1, Math.max(0, (fly - p[6] * 0.18) / 0.82));
+        const t = Math.min(1, Math.max(0, (fly - p[6] * 0.32) / 0.68));
         const e2 = ease(t);
         const x = p[0] + (p[2] - p[0]) * e2;
         const y = p[1] + (p[3] - p[1]) * e2 - Math.sin(e2 * Math.PI) * h * 0.05;
@@ -4347,6 +4371,7 @@ class Component extends DCLogic {
       ringLeft: -this.p("ringOffset", 250),
       ringTile, ringHalf: -Math.round(ringTile / 2),
       goNext: () => this.launch(),
+      shareHref: "mailto:?subject=" + encodeURIComponent("Do we want our music to hurt?") + "&body=" + encodeURIComponent("This interactive piece is best on a computer. Open this link on your desktop:\n\n" + ((typeof window !== "undefined" && window.location) ? window.location.href : "")),
       ringSecs: this.p("ringSecs", 120),
       ringOpacity: this.p("ringOpacity", 0.85),
       tileSize: this.p("tileSize", 86),
