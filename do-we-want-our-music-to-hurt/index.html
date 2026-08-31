@@ -1594,7 +1594,6 @@ class Component extends DCLogic {
                               Math.round(c._pb + (255 - c._pb) * pz) + ")";
             c.style.background = c._pix;
             c.style.borderRadius = "14%";
-            c._glow = "0 0 " + (c._gRad + 14 * pz).toFixed(1) + "px rgba(" + c._gr + "," + c._gg + "," + c._gb + "," + Math.min(1, c._gStr + 0.45 * pz).toFixed(2) + ")";
           } else {
             c.style.borderRadius = "21%";
           }
@@ -1602,9 +1601,7 @@ class Component extends DCLogic {
           const hue = pk === "d" ? "255,47,214" : pk === "a" ? "255,210,63" : "255,255,255";
           const al = pk ? 0.18 + 0.82 * circ : 0.12 + 0.8 * circ;
           c.style.background = circ > 0.02 ? "rgba(" + hue + "," + al.toFixed(3) + ")" : (!showCovers && c._pix ? c._pix : "#141416");
-          c.style.boxShadow = pk && circ > 0.02
-            ? "0 0 " + (22 * circ).toFixed(1) + "px rgba(" + hue + ",0.85), 0 0 " + (52 * circ).toFixed(1) + "px rgba(" + hue + ",0.35)"
-            : (!showCovers && c._glow ? c._glow : "none");
+          c.style.boxShadow = "none";
           if (!this._specFlying && c.style.transform && c.style.transform.indexOf("translate") === 0) c.style.transform = "";
           if (this._specFlying || (!c._coverPeek && c !== this._tourPrev)) {
             c.style.zIndex = this._specFlying ? c.style.zIndex : (pk ? "3" : "1");
