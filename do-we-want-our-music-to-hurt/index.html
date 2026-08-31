@@ -988,13 +988,20 @@ class Component extends DCLogic {
   // reader hits the button. Setting src + load() only BUFFERS — play() still
   // waits for the click, so the autoplay gate is respected. Without this the
   // multi-MB score fetched cold on click and came in seconds late.
+  // compare an <audio>.src (browser-resolved, often NFC-normalised) against a track path
+  // (the "Marías" file is authored NFD) — normalisation-insensitive, so the accented track
+  // isn't seen as a "different" src every section change and constantly reset to 0.
+  _srcMatches(src, f) {
+    try { return decodeURIComponent(src || "").normalize("NFC").indexOf(f.normalize("NFC")) >= 0; }
+    catch (e) { return (src || "").indexOf(encodeURI(f)) >= 0; }
+  }
   ambWarm() {
     if (this._ambI === undefined) this.ambPick();
     const tr = AMB_TRACKS[this._ambI];
     if (!tr) return;
     const a = this.sharedAudio();
     a.preload = "auto";
-    if (a.src.indexOf(encodeURI(tr.f)) < 0) { a.src = tr.f; try { a.load(); } catch (e) {} }
+    if (!this._srcMatches(a.src, tr.f)) { a.src = tr.f; try { a.load(); } catch (e) {} }
   }
 
   ambPlay(step) {
@@ -1004,7 +1011,7 @@ class Component extends DCLogic {
     const tr = AMB_TRACKS[this._ambI];
     const a = this.ambAudio();
     this.soloAudio(a);
-    const same = a.src.indexOf(encodeURI(tr.f)) >= 0;
+    const same = this._srcMatches(a.src, tr.f);
     if (same && !a.paused) { this._ambNow = tr; return; }
     a.onended = () => this.ambPlay(1);
     if (!same) { a.src = tr.f; a.currentTime = 0; }
@@ -1091,6 +1098,26 @@ class Component extends DCLogic {
 
   componentDidMount() {
     window.__dmh = this;
+    // robust launch fallback: on some machines (e.g. Windows touchscreens) the framework's
+    // onClick on the play button never fires. A capture-phase listener on the document catches
+    // ANY click/tap on the front page — before any overlay or hit-test can swallow it — and
+    // starts the experience. Desktop only; inert once launched or once the reader has scrolled.
+    if (!this._begCapBound) {
+      this._begCapBound = true;
+      const beginFromAnywhere = () => {
+        if (this._launched || this._launching) return;
+        if (typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 700px)").matches) return;
+        if ((window.scrollY || 0) > 200) return;
+        try { this.launch(); } catch (e) {}
+        // guarantee the reader can proceed even if launch's ring choreography ever errors:
+        // mark launched (so this doesn't re-fire) and unlock scroll no matter what.
+        this._launched = true;
+        this._noReset = true;
+        this.lockScroll(false);
+      };
+      document.addEventListener("pointerup", beginFromAnywhere, true);
+      document.addEventListener("click", beginFromAnywhere, true);
+    }
     this.promoteImgs();
     clearInterval(this._tick);
     this._tick = setInterval(() => {
