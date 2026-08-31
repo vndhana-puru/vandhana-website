@@ -76,7 +76,7 @@
       </sc-for>
     </div>
 
-    <div data-ov="1" data-z="0" data-chapter="Do we want our music to hurt?" data-screen-label="Title card" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 8vh 6vw 8vh 26vw; opacity: 1; overflow: hidden;">
+    <div data-ov="1" data-z="0" data-chapter="Do we want our music to hurt?" data-screen-label="Title card" onClick="{{ beginClick }}" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; padding: 8vh 6vw 8vh 26vw; opacity: 1; overflow: hidden;">
       <div data-ring="1" style="position: absolute; left: {{ ringLeft }}px; top: 50%; width: 0; height: 0; animation: ringspin {{ ringSecs }}s linear infinite; pointer-events: none;">
         <sc-for list="{{ ring }}" as="r" hint-placeholder-count="30">
           <div data-a="{{ r.a }}" style="position: absolute; left: 0; top: 0; transform: rotate({{ r.a }}deg) translateX({{ ringR }}px) rotate(90deg);">
@@ -248,7 +248,7 @@
       </div>
     </div>
 
-    <div data-ov="1" data-specintro="1" data-z="53400" data-chapter="III — The full spectrum" data-screen-label="Spectrum intro" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center;">
+    <div data-ov="1" data-specintro="1" data-z="53400" data-chapter="III — The full spectrum" data-screen-label="Spectrum intro" style="position: absolute; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none;">
       <div style="width: min(36em, 86vw); display: flex; flex-direction: column; gap: 1.25em; text-align: left; font-family: Lora, Georgia, serif; font-size: clamp(17px, 1.5vw, 23px); font-weight: 400; line-height: 1.5; letter-spacing: -0.014em; color: rgba(244,242,239,0.9);">
         <p data-sipar="0" style="margin: 0; opacity: 0; transition: opacity 0.6s ease; text-wrap: pretty;"><strong style="font-weight: 600; color: #fff;">Do we want our music to hurt?</strong></p>
         <p data-sipar="1" style="margin: 0; opacity: 0; transition: opacity 0.6s ease; text-wrap: pretty;">At first, the answer looks mixed. Albums fall into a near-perfect bell curve, with most balancing dwelling, escaping, and narration. But at the extremes, that balance disappears. Instead, <strong style="font-weight: 600; color: #fff;">roughly three out of four emotionally pure albums dwell in pain rather than escape it.</strong></p>
@@ -4368,6 +4368,10 @@ class Component extends DCLogic {
       ringLeft: -this.p("ringOffset", 250),
       ringTile, ringHalf: -Math.round(ringTile / 2),
       goNext: () => this.launch(),
+      // whole-title-card click-to-begin (desktop only) — a robust fallback so the experience
+      // starts even if the small play button's hit area is ever intercepted. Mobile is a
+      // non-playable "optimized for desktop" landing, so it must NOT launch there.
+      beginClick: () => { if (typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 700px)").matches) return; this.launch(); },
       shareHref: "mailto:?subject=" + encodeURIComponent("Do we want our music to hurt?") + "&body=" + encodeURIComponent("This interactive piece is best on a computer. Open this link on your desktop:\n\n" + ((typeof window !== "undefined" && window.location) ? window.location.href : "")),
       ringSecs: this.p("ringSecs", 120),
       ringOpacity: this.p("ringOpacity", 0.85),
